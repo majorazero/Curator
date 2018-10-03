@@ -40,6 +40,7 @@ app.set('view engine', 'hbs');
 // ----------------------------------------
 
 // TODO: Replace router with required controller routes -->
+require("./controllers/htmlRouter.js")(app);
 // app.use(router);
 
 // Listen
