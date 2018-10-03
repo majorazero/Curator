@@ -39,8 +39,8 @@ app.set('view engine', 'hbs');
 // Routes
 // ----------------------------------------
 
-// TODO: Replace router with required controller routes -->
-// app.use(router);
+// TODO: Insert required controller routes into use method as argument -->
+app.use();
 
 // Listen
 // ----------------------------------------
