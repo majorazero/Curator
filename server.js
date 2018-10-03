@@ -39,9 +39,14 @@ app.set('view engine', 'hbs');
 // Routes
 // ----------------------------------------
 
+<<<<<<< HEAD
 // TODO: Replace router with required controller routes -->
 require("./controllers/htmlRouter.js")(app);
 // app.use(router);
+=======
+// TODO: Insert required controller routes into use method as argument -->
+app.use();
+>>>>>>> 5579c0781f4ebf9e14977ff950a020e5a8334e86
 
 // Listen
 // ----------------------------------------
