@@ -14,7 +14,7 @@ path = require("path");
 // ----------------------------------------
 
 // Server port
-const port = process.env.PORT || 3000,
+const PORT = process.env.PORT || 3000,
 // Express app
 app = express(),
 // Url encoded parser
@@ -40,7 +40,7 @@ app.set('view engine', 'hbs');
 // ----------------------------------------
 
 // TODO: Replace router with required controller routes -->
-app.use(router);
+// app.use(router);
 
 // Listen
 // ----------------------------------------
