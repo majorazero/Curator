@@ -19,3 +19,11 @@ $("#expand-btn").on("click", function(){
     $('#expanded-modal').modal('show'); 
 });
 
+$("#navbar-log-sign").on("click", function(){
+    $('#log-sign-modal').modal('show'); 
+});
+
+
+
+
+
