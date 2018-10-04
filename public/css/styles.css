@@ -1,9 +1,17 @@
+body {
+    background-color: lemonchiffon;
+}
 .main-row-style {
     margin-bottom: 3%;
 }
 
 .group-img-text{
     text-align:center; 
-    background-color:green;
+    background-color:lightskyblue;
+}
+
+.navbar {
+    margin-bottom: 15px;
+    border-bottom: 1px solid black;
 }
 

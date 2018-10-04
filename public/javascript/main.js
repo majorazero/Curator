@@ -14,3 +14,8 @@ $("#group-name3").on("click", function(){
 });
 
 
+$("#expand-btn").on("click", function(){
+    $('#exampleModalCenter').modal('hide'); 
+    $('#expanded-modal').modal('show'); 
+});
+
