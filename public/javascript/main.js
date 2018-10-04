@@ -27,3 +27,7 @@ $("#flagModButts").on("click", function(){
   $("#exampleModalCenter").modal("hide");
   $("#flagModal").modal("show");
 });
+
+$("#inviteCode").on("click",function(){
+  $("#inviteCodeModal").modal("show");
+})
