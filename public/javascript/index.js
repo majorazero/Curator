@@ -25,9 +25,6 @@ $("#expand-btn").on("click", function () {
 */
 $("#navbar-log-sign").on("click", function(){
   $('#log-sign-modal').modal('show');
-
-  $("#navbar-log-sign").on("click", function () {
-    $('#log-sign-modal').modal('show');
 });
 
 //Back button from expand to returant modal
@@ -53,4 +50,4 @@ $("#flagModButts").on("click", function(){
 */
 $("#inviteCode").on("click",function(){
   $("#inviteCodeModal").modal("show");
-})
+});
