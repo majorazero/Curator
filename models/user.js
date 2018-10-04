@@ -23,5 +23,13 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false
             }
         });
+        User.belongsToMany(models.Restaurant, {
+            through: "Membership",
+            as: "ratings",
+            foreignKey: {
+                name: "userId",
+                allowNull: false
+            }
+        });
     };
 };

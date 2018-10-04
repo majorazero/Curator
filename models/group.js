@@ -19,5 +19,13 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false
             }
         });
+        Group.belongsToMany(models.Restaurant, {
+            through: "Membership",
+            as: "ratings",
+            foreignKey: {
+                name: "groupId",
+                allowNull: false
+            }
+        });
     };
 };
