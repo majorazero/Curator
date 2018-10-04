@@ -8,7 +8,8 @@
 const bodyParser = require("body-parser"),
 express = require("express"),
 hbs = require("express-handlebars"),
-path = require("path");
+path = require("path"),
+db = require("./models");
 
 // Components
 // ----------------------------------------
@@ -46,6 +47,12 @@ require("./controllers/indexRouter.js")(app);
 // Listen
 // ----------------------------------------
 
-app.listen(PORT, () => {
-    console.log(`Food Curator server running on port ${PORT}`);
+// Sync sequelize models + listen
+db.sequelize
+.sync({force: true})
+.then(() => {
+    app.listen(PORT, () => {
+        console.log(`Food Curator server running on port ${PORT}`);
+    });
 });
+
