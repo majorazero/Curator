@@ -8,7 +8,11 @@ module.exports = (sequelize, DataTypes) => {
        name: {
            type: DataTypes.STRING(50),
            allowNull: false
-       } 
+       },
+       location: {
+           type: DataTypes.STRING,
+           allowNull: false
+       }
     });
     Group.associate = (models) => {
         Group.belongsToMany(models.User, {
