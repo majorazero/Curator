@@ -32,5 +32,8 @@ $("#backto-scroll-modal").on("click", function(){
     $('#exampleModalCenter').modal('show'); 
 });
 
-
+    $('.scrollmenu').mousewheel(function(e, delta) {
+    this.scrollLeft -= (delta * 1);
+    e.preventDefault();
+    });
 
