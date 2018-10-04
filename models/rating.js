@@ -15,23 +15,24 @@ module.exports = (sequelize, DataTypes) => {
         }
     });
     Rating.associate = (models) => {
-        Rating.belongTo(models.User, {
+        Rating.belongsTo(models.User, {
             foreignKey: {
                 name: "userId",
                 allowNull: false
             }
         });
-        Rating.belongTo(models.Group, {
+        Rating.belongsTo(models.Group, {
             foreignKey: {
                 name: "groupId",
                 allowNull: false
             }
         });
-        Rating.belongTo(models.Rating, {
+        Rating.belongsTo(models.Restaurant, {
             foreignKey: {
                 name: "restaurantId",
                 allowNull: false
             }
         });
     };
+    return Rating;
 };

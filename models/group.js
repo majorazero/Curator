@@ -24,22 +24,5 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: true
         }
     });
-    Group.associate = (models) => {
-        Group.belongsToMany(models.User, {
-            through: "Membership",
-            as: "memberships",
-            foreignKey: {
-                name: "groupId",
-                allowNull: false
-            }
-        });
-        Group.belongsToMany(models.Restaurant, {
-            through: "Membership",
-            as: "ratings",
-            foreignKey: {
-                name: "groupId",
-                allowNull: false
-            }
-        });
-    };
+    return Group;
 };
