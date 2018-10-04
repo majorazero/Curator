@@ -21,3 +21,36 @@ body {
 }
 
 
+.scrollmenu {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+
+
+}
+.card {
+    display: inline-block;
+  }
+
+
+/* .modal-content{
+   
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin:0 auto;
+  }
+
+ .modal-content > .scroll-bar-item .card {
+    width: 100px;
+    height: 100px;
+  }
+
+ .modal-content {
+    transform: rotate(-90deg);
+    transform-origin: right top;
+  }
+
+ .modal-content > .scroll-bar-item .card {
+    transform: rotate(90deg);
+    transform-origin: right top;
+  } */
