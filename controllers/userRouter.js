@@ -29,6 +29,9 @@ module.exports = function(app){
   ////////////////////////////////////
   //////Create Routes
   ///////////////////////////////////
+  app.post("/api/login",function(req,res){
+    console.log(req.body);
+  });
   app.post("/api/newUser",function(req,res){
     db.User.create({
       username: req.body.username,
