@@ -23,19 +23,33 @@ body {
 #modal-textfix {
     text-align:left;
 }
+
+/* First Modal Scroll Menu */
 .scrollmenu {
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
 }
+
+/* Second Modal - Expanded Scroll Menu */
+.scrollmenu2{
+    max-height: 66vh;
+    overflow: auto;
+}
 .card {
     display: inline-block;
   }
 
-  .modal-dialog{
-      /* width:50%; */
-      max-width:80%;
-      max-height:80%;
+/* First Modal Sizing */
+.modal-dialog-centered1{
+    max-width:35%;
+}
+    
+/* Second Modal Sizing */
+  .modal-dialog-centered2{
+      max-width: 50%;
+      height: 90%;
+      overflow: auto;
   }
 
   i.fas {
@@ -59,12 +73,11 @@ body {
 .rest-rating{
     text-align:right;
 }
-.rest-img{
-    height:100px;
-    width:100px;
-}
-
-.scrollmenu2{
-    max-height: 800px;
-    overflow: auto;
-}
+/* .rest-img{
+    height:100%;
+    width:100%;
+} */
+/* .main-group-btn{
+    height:30%;
+    width:30%;
+} */
