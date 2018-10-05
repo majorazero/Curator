@@ -1,5 +1,5 @@
 /**
- * Group Router
+ * Clan Router
  */
 
 // Dependencies
@@ -7,13 +7,13 @@
 
 const db = require("../models");
 
-// Export Group Routes
+// Export Clan Routes
 // --------------------------------------------
 
 module.exports = (app) => {
-    // Find all groups by group id
-    app.get("/api/groups/:id", (req, res) => {
-        db.Group
+    // Find all clans by clan id
+    app.get("/api/clans/:id", (req, res) => {
+        db.Clan
         .findAll({
             where: {
                 id: req.params.id
@@ -26,9 +26,9 @@ module.exports = (app) => {
             res.status(404).json(err);
         });
     });
-    // Find all groups by user id
-    app.get("/api/groups/users/:id", (req, res) => {
-        db.Group
+    // Find all clans by user id
+    app.get("/api/clans/users/:id", (req, res) => {
+        db.Clan
         .findAll({
             where: {
                 id: req.params.id
@@ -41,9 +41,9 @@ module.exports = (app) => {
             res.status(404).json(err);
         });
     });
-    // Find all groups by restaurant
-    app.get("/api/groups/restaurant/:id", (req, res) => {
-        db.Group
+    // Find all clans by restaurant
+    app.get("/api/clans/restaurant/:id", (req, res) => {
+        db.Clan
         .findAll({
             where: {
                 id: req.parms.id
@@ -56,9 +56,9 @@ module.exports = (app) => {
             res.status(404).json(err);
         });
     });
-    // Create new group
-    app.post("/api/groups/new", (req, res) => {
-        db.Group
+    // Create new clan
+    app.post("/api/clans/new", (req, res) => {
+        db.Clan
         .create({
             name: req.body.name,
             location: req.body.location,
@@ -71,9 +71,9 @@ module.exports = (app) => {
             res.status(404).json(err);
         });
     });
-    // Update group
-    app.put("/api/groups/:id", (req, res) => {
-        db.Group
+    // Update clan
+    app.put("/api/clans/:id", (req, res) => {
+        db.Clan
         .update({
             name: req.body.nam,
             location: req.body.location,
@@ -90,9 +90,9 @@ module.exports = (app) => {
             res.status(404).json(err);
         });
     });
-    // Delete group
-    app.delete("/api/groups/:id", (req, res) => {
-        db.Group
+    // Delete clan
+    app.delete("/api/clans/:id", (req, res) => {
+        db.Clan
         .destroy({
             where: {
                 id: req.parms.id

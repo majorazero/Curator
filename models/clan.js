@@ -1,10 +1,10 @@
 /**
- * Group Model
+ * Clan Model
  */
 
-// Export group model
+// Export clan model
 module.exports = (sequelize, DataTypes) => {
-    const Group = sequelize.define("Group", {
+    const Clan = sequelize.define("Clan", {
         name: {
             type: DataTypes.STRING(100),
             allowNull: false,
@@ -30,5 +30,5 @@ module.exports = (sequelize, DataTypes) => {
             defaultValue: true
         }
     });
-    return Group;
+    return Clan;
 };
