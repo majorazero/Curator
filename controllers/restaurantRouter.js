@@ -5,7 +5,12 @@ module.exports = function (app) {
     // GET route for getting all of the restaurants
     app.get("/api/restaurants", function (req, res) {
         db.Restaurant.findAll({}).then(function (response) {
-            res.json(response);
+            if (response.length === 0) {
+                res.json("No Restaurants Found");
+            }
+            else {
+                res.json(response);
+            }
         });
     });
     // GET route for getting all of the restaurants by yelp id
@@ -16,7 +21,7 @@ module.exports = function (app) {
                 yelpid: req.params.yelpid
             }
         }).then(function (response) {
-            if (response === []) {
+            if (response.length === 0) {
                 res.json("No Restaurants Found");
             }
             else {
