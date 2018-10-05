@@ -7,11 +7,17 @@ module.exports = (sequelize, DataTypes) => {
     const User = sequelize.define("User", {
         username: {
             type: DataTypes.STRING(30),
-            allowNull: false
+            allowNull: false,
+            validate: {
+                is: /(?=[a-z1-9]{8,30})(?!.*[^a-z1-9]+)(?=.*[^\s])/i
+            }
         },
         password: {
             type: DataTypes.STRING(40),
-            allowNull: false
+            allowNull: false,
+            validate: {
+                is: /(?=.*[a-z]{2,})(?=.*\d{2,})(?=.*[^a-z1-9]{2,})(?=.*.{8,40})(?=.*[A-Z]+)/
+            }
         }
     });
     return User;
