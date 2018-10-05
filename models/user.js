@@ -9,15 +9,15 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(30),
             allowNull: false,
             validate: {
-                is: /(?=[a-z1-9]{8,30})(?!.*[^a-z1-9]+)(?=.*[^\s])/i
+                is: /(?=[a-z1-9]{3,30})(?!.*[^a-z1-9]+)(?=.*[^\s])/i
             }
         },
         password: {
             type: DataTypes.STRING(40),
-            allowNull: false,
-            validate: {
-                is: /(?=.*[a-z]{2,})(?=.*\d{2,})(?=.*[^a-z1-9]{2,})(?=.*.{8,40})(?=.*[A-Z]+)/
-            }
+            allowNull: false
+        },
+        token: {
+          type: DataTypes.STRING(100)
         }
     });
     return User;

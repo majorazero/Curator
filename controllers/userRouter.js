@@ -1,4 +1,5 @@
 const db = require("../models");
+const crypto = require("crypto");
 
 module.exports = function(app){
   ////////////////////////////////////
@@ -30,9 +31,40 @@ module.exports = function(app){
   //////Create Routes
   ///////////////////////////////////
   app.post("/api/login",function(req,res){
-    console.log(req.body);
+    db.User.findOne({
+      where: {
+        username: req.body.username
+      }
+    }).then(function(user){
+      if(user.dataValues.password === req.body.password){
+        console.log("Yep!");
+        console.log(user.dataValues);
+        //if password matches, we'll make a token, by encryption
+        //tokens are uniquely generated based on user name and password
+        let mykey = crypto.createCipher("aes-128-cbc",req.body.username);
+        let token = mykey.update(req.body.password,'utf8','hex');
+        token += mykey.final('hex');
+        //saves token
+        db.User.update({
+          token: token
+        },{
+          where: {
+            username: req.body.username
+          }
+        }).then(function(){
+          //sends token back to front end.
+          res.json(token);
+        });
+      }
+      else {
+        //sends bad password back as a womp response
+        res.json("womp");
+      }
+    })
   });
+
   app.post("/api/newUser",function(req,res){
+    console.log(req.body);
     db.User.create({
       username: req.body.username,
       password: req.body.password

@@ -12,8 +12,8 @@ $("#login").on("submit",function(event){
     username: username,
     password: password,
     token: token}
+  }).then(function(data){
+    localStorage.setItem("token",data);
+    console.log(localStorage.getItem("token"));
   });
-  //send a post to the routers... encrpytion belongs in userRouter
-  console.log(username,password);
-  console.log(token);
 });
