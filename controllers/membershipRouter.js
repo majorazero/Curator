@@ -43,7 +43,7 @@ module.exports = function (app) {
     });
 
     // GET route for retrieving a single member
-    app.get("/api/membership/:id", function (req, res) {
+    app.get("/api/memberships/:id", function (req, res) {
         db.Membership.findOne({
             where: {
                 id: req.params.id
@@ -59,7 +59,7 @@ module.exports = function (app) {
     });
 
     // POST route for saving a new restaurant
-    app.post("/api/membership/new", function (req, res) {
+    app.post("/api/memberships", function (req, res) {
         db.Membership.create({
             isAdmin: req.body.isAdmin,
             isMember: re.body.isMember,
@@ -70,7 +70,7 @@ module.exports = function (app) {
         });
     });
     // DELETE route for deleting a restaurant
-    app.delete("/api/membership/:id", function (req, res) {
+    app.delete("/api/memberships/:id", function (req, res) {
         db.Membership.destroy({
             where: {
                 id: req.params.id
@@ -78,26 +78,24 @@ module.exports = function (app) {
         }).then(function (response) {
             if (response === []) {
                 res.json("No Membership Found");
-            }
-            else {
+            } else {
                 res.json(response);
             }
         });
     });
     // PUT route for updating a restaurant
-    app.put("/api/membership/update", function (req, res) {
+    app.put("/api/memberships/:id", function (req, res) {
         db.Membership.update({
             isAdmin: req.body.isAdmin,
-            isMember: re.body.isMember,
-            userId: re.body.userId,
+            isMember: req.body.isMember,
+            userId: req.body.userId,
             groupId: req.body.groupId
-        },
-            {
-                where: {
-                    id: req.body.id
-                }
-            }).then(function (response) {
-                res.json(response);
-            });
+        }, {
+            where: {
+                id: req.params.id
+            }
+        }).then(function (response) {
+            res.json(response);
+        });
     });
-}
+};
