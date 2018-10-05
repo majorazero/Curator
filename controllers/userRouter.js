@@ -22,7 +22,7 @@ module.exports = function(app){
         }
         else {
           res.json("Oops, bad password.");
-        }  
+        }
       }
     });
   });
@@ -40,9 +40,27 @@ module.exports = function(app){
   ////////////////////////////////////
   //////Update Routes
   ///////////////////////////////////
-
+  app.put("/api/updateUserPass",function(req,res){
+    db.User.update({
+      password: req.body.password
+    },{
+      where: {
+      username: req.body.username
+      }
+    }).then(function(){
+      res.json("Password updated!");
+    });
+  });
   ////////////////////////////////////
   //////Destroy Routes
   ///////////////////////////////////
-
+  app.delete("/api/deleteUser",function(req,res){
+    db.User.destroy({
+      where:{
+        id: req.body.id
+      }
+    }).then(function(){
+      res.json("User destroyed.")
+    });
+  });
 };
