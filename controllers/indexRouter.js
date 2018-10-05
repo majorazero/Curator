@@ -1,9 +1,9 @@
 module.exports = function(app){
-  require("./htmlRouter.js")(app);
-  require("./yelpRouter.js")(app);
-  require("./userRouter.js")(app);
-  require("./groupRouter")(app);
+  require("./htmlRouter")(app);
+  require("./yelpRouter")(app);
+  require("./userRouter")(app);
+  require("./clanRouter")(app);
   require("./ratingRouter")(app);
-  require("./restaurantRouter.js")(app);
-  require("./membershipRouter.js")(app);
+  require("./restaurantRouter")(app);
+  require("./membershipRouter")(app);
 };

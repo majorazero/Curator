@@ -13,7 +13,15 @@ $("#login").on("submit",function(event){
     password: password,
     token: token}
   }).then(function(data){
-    localStorage.setItem("token",data);
-    console.log(localStorage.getItem("token"));
+    if(data === "womp"){
+      console.log("Bad password");
+    }
+    else if(data === "womp2"){
+      console.log("User not found!");
+    }
+    else {
+      localStorage.setItem("token",data);
+      console.log(localStorage.getItem("token"));
+    }
   });
 });

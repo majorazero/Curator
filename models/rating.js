@@ -27,9 +27,9 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false
             }
         });
-        Rating.belongsTo(models.Group, {
+        Rating.belongsTo(models.Clan, {
             foreignKey: {
-                name: "groupId",
+                name: "clanId",
                 allowNull: false
             }
         });
