@@ -11,21 +11,21 @@ const db = require("../models");
 // --------------------------------------------
 
 module.exports = (app) => {
-        // Find all clans by isPublic true
-        app.get("/api/clans/public", (req, res) => {
-            db.Clan
-            .findAll({
-                where: {
-                    isPublic: true
-                }
-            })
-            .then((data) => {
-                res.status(200).json(data);
-            })
-            .catch((err) => {
-                res.status(404).json(err);
-            });
+    // Find all clans by isPublic true
+    app.get("/api/clans/public", (req, res) => {
+        db.Clan
+        .findAll({
+            where: {
+                isPublic: true
+            }
+        })
+        .then((data) => {
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(404).json(err);
         });
+    });
     // Find all clans by clan id
     app.get("/api/clans/:id", (req, res) => {
         db.Clan
