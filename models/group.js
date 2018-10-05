@@ -6,12 +6,18 @@
 module.exports = (sequelize, DataTypes) => {
     const Group = sequelize.define("Group", {
         name: {
-            type: DataTypes.STRING(50),
-            allowNull: false
+            type: DataTypes.STRING(100),
+            allowNull: false,
+            validate: {
+                is: /^[a-z]{2,20}(\s[a-z]{2,20}){0,4}$/i
+            }
         },
         location: {
-            type: DataTypes.STRING,
-            allowNull: false
+            type: DataTypes.STRING(100),
+            allowNull: false,
+            validate: {
+                is: /^[a-z]{2,20}(\s[a-z]{2,20}){0,4}$/i
+            }
         },
         isPublic: {
             type: DataTypes.BOOLEAN,
