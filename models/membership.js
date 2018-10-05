@@ -23,9 +23,9 @@ module.exports = (sequelize, DataTypes) => {
                 allowNull: false
             }
         });
-        Membership.belongsTo(models.Group, {
+        Membership.belongsTo(models.Clan, {
             foreignKey: {
-                name: "groupId",
+                name: "clanId",
                 allowNull: false
             }
         });
