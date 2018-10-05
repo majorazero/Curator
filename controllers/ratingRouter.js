@@ -26,8 +26,8 @@ module.exports = (app) => {
             res.status(404).json(err);
         });
     });
-    // Find all ratings group id
-    app.get("/api/ratings/groups/:id", (req, res) => {
+    // Find all ratings clans id
+    app.get("/api/ratings/clans/:id", (req, res) => {
         db.Rating
         .findAll({
             where: {
@@ -63,7 +63,7 @@ module.exports = (app) => {
             rating: req.body.rating,
             comment: req.body.comment,
             userId: req.body.userId,
-            groupId: req.body.groupId,
+            clansId: req.body.clansId,
             restaurantId: req.body.restaurantId
         })
         .then((data) => {
@@ -80,7 +80,7 @@ module.exports = (app) => {
             rating: req.body.rating,
             comment: req.body.comment,
             userId: req.body.userId,
-            groupId: req.body.groupId,
+            clansId: req.body.clansId,
             restaurantId: req.body.restaurantId
         }, {
             where: {
