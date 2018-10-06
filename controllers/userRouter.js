@@ -54,7 +54,7 @@ module.exports = function(app){
             }
           }).then(function(data){
             //sends token back to front end.
-            res.json({token: token, id: user.dataValues.id});
+            res.json({token: token, id: user.dataValues.id, username: user.dataValues.username});
           });
         }
         else {

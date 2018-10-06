@@ -1,5 +1,5 @@
-//meaning session storage has a curatorId
-if(sessionStorage.getItem("curatorId") !== null){
+//lets check if session storage existsm this meaning null means it doesnt
+if(sessionStorage.getItem("curatorId") === null){
   //if session storage doesn't exist, let's check for a token.
   if(localStorage.getItem("token")!== null){
     //well call a post route for tokens here
@@ -41,6 +41,7 @@ $("#login").on("submit",function(event){
     }
     else {
       sessionStorage.setItem("curatorId",data.id);
+      sessionStorage.setItem("curatorName",data.username);
       localStorage.setItem("token",data.token);
     }
     $("#log-sign-modal").modal("toggle");
