@@ -17,19 +17,20 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Curator</a>
-    <a class="nav-link" id="explore-btn" href="/">Explore<span class="sr-only">(current)</span></a>
-    <a class="nav-link login-only" href="#">Your Follows</a>
-    <a class="nav-link login-only" href="#">Your Groups</a>
-    <a class='nav-link login-only' id="inviteCode" href="#">Invite Code</a>
-    <form class="ml-auto form-inline">
+  <nav id="navBar" class="navbar navbar-expand-lg">
+    <a class="navbar-brand glow" href="#">Curator</a>
+    <a class="nav-link glow" id="explore-btn" href="/">Explore<span class="sr-only">(current)</span></a>
+    <a class="nav-link login-only glow" href="#">Your Follows</a>
+    <a class="nav-link login-only glow" href="#">Your Groups</a>
+    <a class='nav-link login-only glow' id="inviteCode" href="#">Invite Code</a>
+    <form class="ml-2 form-inline">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button type="button" class="btn btn-secondary">Search</button>
     </form>
-    <a id="navbar-log-sign"><img src="images/dummy-icon.png" width="50" /></a>
+    <a id="navbar-log-sign" class="navLogin"><img src="images/dummy-icon.png" width="50"/></a>
   </nav>
 
-  <div class='container'>
+  <div class='container-fluid'>
     {{{body}}}
   </div>
   <!-- invite code modal -->
