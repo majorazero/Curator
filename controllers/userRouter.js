@@ -22,6 +22,7 @@ module.exports = function(app){
       }
       else {
         //we didn't
+        res.json("No matching token.");
       }
     });
   });

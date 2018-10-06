@@ -10,9 +10,14 @@ if(sessionStorage.getItem("curatorId") === null){
         token: localStorage.getItem("token")
       }
     }).then(function(data){
-      //if token checks out, we'll store the data into session storage.
-      sessionStorage.setItem("curatorId",data.id);
-      sessionStorage.setItem("curatorName",data.username);
+      if(data === "No matching token."){
+        //if we want to do something in case this happens you can put it here, but as of now, nothing happens is adequate
+      }
+      else{
+        //if token checks out, we'll store the data into session storage.
+        sessionStorage.setItem("curatorId",data.id);
+        sessionStorage.setItem("curatorName",data.username);
+      }
     });
   }
   //if it equals null nothing happens, because you need to login.
