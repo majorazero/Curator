@@ -18,25 +18,6 @@ if(sessionStorage.length < 1){
   }
   //if it equals null nothing happens, because you need to login.
 }
-// //lets check if a session exists
-// if(localStorage.getItem("session") !== null){
-//
-// }
-// else {
-//   //it doesn't
-//   // check if localStorage is live.
-//   if(localStorage.getItem("token") !== null){
-//     $.ajax({
-//       type: "POST",
-//       url: "/api/tokenLogin",
-//       data: {
-//         token: localStorage.getItem("token")
-//       }
-//     }).then(function(){
-//
-//     });
-//   }
-// }
 
 //capture login info.
 $("#login").on("submit",function(event){

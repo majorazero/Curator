@@ -24,7 +24,18 @@ $("#expand-btn").on("click", function () {
 * Modal event handler for the login button.
 */
 $("#navbar-log-sign").on("click", function(){
-  $('#log-sign-modal').modal('show');
+  if(sessionStorage.getItem("curatorId") !== null){
+    let profileBody = $("#profileBody");
+    profileBody.empty();
+    let imgDiv = $("<div>").append("<img id='profileImageModal' class='img-fluid' src='images/dummy-icon.png' />");
+    console.log(sessionStorage);
+    let userNameDiv = $("<div>").text(sessionStorage.curatorName).attr("id","profileUsernameModal");
+    profileBody.append(imgDiv).append(userNameDiv);
+    $("#profileModal").modal("show");
+  }
+  else {
+    $('#log-sign-modal').modal('show');
+  }
 });
 
 //Back button from expand to returant modal
