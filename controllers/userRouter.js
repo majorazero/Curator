@@ -65,12 +65,24 @@ module.exports = function(app){
   });
 
   app.post("/api/newUser",function(req,res){
-    db.User.create({
-      username: req.body.username,
-      password: req.body.password
-    }).then(function(){
-      res.json("Made it!");
-    }).catch(err => res.status(404).json(err));
+    console.log(req.body);
+    //we need to check if the user exists already.
+    db.User.findOne({
+      where: {
+        username: req.body.username
+      }
+    }).then(function(data){
+      //if we found someone
+      if(data !== null){
+        res.json("Username already used.");
+      }
+    })
+    // db.User.create({
+    //   username: req.body.username,
+    //   password: req.body.password
+    // }).then(function(){
+    //   res.json("Made it!");
+    // }).catch(err => res.status(404).json(err));
   });
   ////////////////////////////////////
   //////Update Routes

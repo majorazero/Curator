@@ -85,3 +85,7 @@ body {
 .login-only {
   display:none;
 }
+#usernameWarningMessage{
+  display: none;
+  color: red;
+}

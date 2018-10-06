@@ -64,3 +64,28 @@ $("#logout").on("click",function(){
   $("#profileModal").modal("toggle");
   $(".login-only").hide();
 });
+
+//register transition
+$("#toRegisterButton").on("click",function(){
+  $("#log-sign-modal").modal("toggle");
+  $("#registerModal").modal("toggle");
+  $("#usernameWarningMessage").hide();
+});
+
+$("#registerButton").on("click",function(){
+  let username = $("#regUsername").val();
+  let password = $("#regPass").val();
+  $.ajax({
+    type: "POST",
+    url: "/api/newUser",
+    data: {
+      username: username,
+      password: password
+    }
+  }).then(function(response){
+    if(response === "Username already used."){
+      $("#regUsername").val("");
+      $("#usernameWarningMessage").show();
+    }
+  });
+});
