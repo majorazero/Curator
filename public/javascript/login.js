@@ -87,5 +87,10 @@ $("#registerButton").on("click",function(){
       $("#regUsername").val("");
       $("#usernameWarningMessage").show();
     }
+    else {
+      //its been made. so we'll just ask them to log in so we can make them a key.
+      $("#registerModal").modal("toggle");
+      $("#registerSuccess").modal("toggle");
+    }
   });
 });

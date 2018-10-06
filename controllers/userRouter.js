@@ -76,13 +76,16 @@ module.exports = function(app){
       if(data !== null){
         res.json("Username already used.");
       }
+      else {
+        //we'll build our user
+        db.User.create({
+          username: req.body.username,
+          password: req.body.password
+        }).then(function(createRes){
+          res.end();
+        }).catch(err => res.status(404).json(err));
+      }
     })
-    // db.User.create({
-    //   username: req.body.username,
-    //   password: req.body.password
-    // }).then(function(){
-    //   res.json("Made it!");
-    // }).catch(err => res.status(404).json(err));
   });
   ////////////////////////////////////
   //////Update Routes
