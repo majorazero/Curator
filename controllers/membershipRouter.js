@@ -11,11 +11,32 @@ module.exports = function (app) {
     //     });
     // });
 
-    // GET route for getting all of the memberships by groupId // if group set idpublic to false
-    app.get("/api/memberships/groups/:id", function (req, res) {
+
+    // GET route for getting all of the memberships by UserId
+    app.get("/api/memberships/users/:id", function (req, res) {
+        db.Membership
+        .findAll({
+            includes: [{
+                model: db.User,
+                where: {
+                    id: req.params.id
+                }
+            }]
+        })
+        .then((data) => {
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(404).json(err);
+        });
+    });
+
+
+    // GET route for getting all of the memberships by clanId // if clan set idpublic to false
+    app.get("/api/memberships/clans/:id", function (req, res) {
         db.Membership.findAll({
             where: {
-                groupId: req.params.id
+                clanId: req.params.id
             }
         }).then(function (response) {
             if (response.length === 0) {
@@ -27,7 +48,7 @@ module.exports = function (app) {
         });
     });
     // GET route for getting all of the memberships by UserId
-    app.get("/api/memberships/userid/:id", function (req, res) {
+    app.get("/api/memberships/users/:id", function (req, res) {
         db.Membership.findAll({
             where: {
                 userId: req.params.id
@@ -62,12 +83,12 @@ module.exports = function (app) {
     app.post("/api/memberships", function (req, res) {
         db.Membership.create({
             isAdmin: req.body.isAdmin,
-            isMember: re.body.isMember,
-            userId: re.body.userId,
-            groupId: req.body.groupId
+            isMember: req.body.isMember,
+            userId: req.body.userId,
+            clanId: req.body.clanId
         }).then(function (response) {
             res.json(response);
-        });
+        }).catch(err => res.status(404).json(err));
     });
     // DELETE route for deleting a restaurant
     app.delete("/api/memberships/:id", function (req, res) {
@@ -89,13 +110,13 @@ module.exports = function (app) {
             isAdmin: req.body.isAdmin,
             isMember: req.body.isMember,
             userId: req.body.userId,
-            groupId: req.body.groupId
+            clanId: req.body.clanId
         }, {
-            where: {
-                id: req.params.id
-            }
-        }).then(function (response) {
-            res.json(response);
-        });
+                where: {
+                    id: req.params.id
+                }
+            }).then(function (response) {
+                res.json(response);
+            });
     });
 };

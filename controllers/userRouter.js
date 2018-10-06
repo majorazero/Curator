@@ -72,7 +72,7 @@ module.exports = function(app){
       password: req.body.password
     }).then(function(){
       res.json("Made it!");
-    });
+    }).catch(err => res.status(404).json(err));
   });
   ////////////////////////////////////
   //////Update Routes

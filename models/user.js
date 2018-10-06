@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(30),
             allowNull: false,
             validate: {
-                is: /(?=[a-z1-9]{3,30})(?!.*[^a-z1-9]+)(?=.*[^\s])/i
+                is: /(?=[a-z1-9]{4,30})(?!.*[^a-z1-9]+)(?=.*[^\s])/i
             }
         },
         password: {
