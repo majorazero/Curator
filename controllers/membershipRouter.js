@@ -13,15 +13,35 @@ module.exports = function (app) {
 
 
     // GET route for getting all of the memberships by UserId
-    app.get("/api/memberships/users/:id", function (req, res) {
+    // And if user is a member
+    app.post("/api/memberships/userGroups", function (req, res) {
+        db.Membership
+        .findAll({
+            where: {
+                userId: req.body.id,
+                isMember: true
+            }
+        })
+        .then((data) => {
+            res.status(200).json(data);
+        })
+        .catch((err) => {
+            res.status(404).json(err);
+        });
+    });
+
+    // GET route for getting all of the memberships by UserId
+    // And 
+    app.post("/api/memberships/user", function (req, res) {
         db.Membership
         .findAll({
             includes: [{
-                model: db.User,
-                where: {
-                    id: req.params.id
-                }
-            }]
+                model: db.Clan,
+                as: "userClans"
+            }],
+            where: {
+                userId: req.body.id
+            }
         })
         .then((data) => {
             res.status(200).json(data);
