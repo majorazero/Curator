@@ -6,7 +6,7 @@ body {
 }
 
 .group-img-text{
-    text-align:center; 
+    text-align:center;
     background-color:lightskyblue;
 }
 
@@ -44,7 +44,7 @@ body {
 .modal-dialog-centered1{
     max-width:35%;
 }
-    
+
 /* Second Modal Sizing */
   .modal-dialog-centered2{
       max-width: 50%;
@@ -81,3 +81,7 @@ body {
     height:30%;
     width:30%;
 } */
+
+.login-only {
+  display:none;
+}

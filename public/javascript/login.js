@@ -17,7 +17,9 @@ if(sessionStorage.getItem("curatorId") === null){
   }
   //if it equals null nothing happens, because you need to login.
 }
-
+else{
+  $(".login-only").show();
+}
 //capture login info.
 $("#login").on("submit",function(event){
   event.preventDefault();
@@ -43,6 +45,7 @@ $("#login").on("submit",function(event){
       sessionStorage.setItem("curatorId",data.id);
       sessionStorage.setItem("curatorName",data.username);
       localStorage.setItem("token",data.token);
+      $(".login-only").show();
     }
     $("#log-sign-modal").modal("toggle");
   });
@@ -50,9 +53,9 @@ $("#login").on("submit",function(event){
 
 //logout functionality
 $("#logout").on("click",function(){
-  console.log(sessionStorage,localStorage);
   //clears out sessionStorage and localStorage
   sessionStorage.clear();
   localStorage.clear();
   $("#profileModal").modal("toggle");
+  $(".login-only").hide();
 });

@@ -18,7 +18,6 @@ module.exports = function(app){
       }
     }).then(function(data){
       if (data !== null){
-        console.log(data.dataValues);
         res.json(data.dataValues);
       }
       else {
@@ -39,7 +38,6 @@ module.exports = function(app){
       else{
         if(user.dataValues.password === req.body.password){
           console.log("Yep!");
-          console.log(user.dataValues);
           //if password matches, we'll make a token, by encryption
           //tokens are uniquely generated based on user name and password
           let mykey = crypto.createCipher("aes-128-cbc",req.body.username);
@@ -66,7 +64,6 @@ module.exports = function(app){
   });
 
   app.post("/api/newUser",function(req,res){
-    console.log(req.body);
     db.User.create({
       username: req.body.username,
       password: req.body.password
