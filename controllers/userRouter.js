@@ -6,11 +6,26 @@ module.exports = function(app){
   //////Read Routes
   ///////////////////////////////////
 
-  
+
 
   ////////////////////////////////////
   //////Create Routes
   ///////////////////////////////////
+  app.post("/api/tokenLogin",function(req,res){
+    db.User.findOne({
+      where:{
+        token: req.body.token
+      }
+    }).then(function(data){
+      if (data !== null){
+        console.log(data.dataValues);
+        res.json(data.dataValues);
+      }
+      else {
+        //we didn't
+      }
+    });
+  });
   app.post("/api/login",function(req,res){
     db.User.findOne({
       where: {
@@ -37,9 +52,9 @@ module.exports = function(app){
             where: {
               username: req.body.username
             }
-          }).then(function(){
+          }).then(function(data){
             //sends token back to front end.
-            res.json(token);
+            res.json({token: token, id: user.dataValues.id});
           });
         }
         else {
