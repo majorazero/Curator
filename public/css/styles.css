@@ -40,13 +40,22 @@ body {
 }
 
 .figure {
-    max-height: 100%;
-    overflow: hidden;
+    max-height: 150px;
+    min-width: 284px;
+}
+
+.figure-img {
+    height: 150px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 1px solid rgb(7, 7, 7, 0.7);
 }
 
 .card-img-top {
     border-top-left-radius: 30px;
     border-top-right-radius: 30px;
+    object-fit: scale-down;
+    text-align: center;
 }
 
 
@@ -57,7 +66,7 @@ body {
 
 .navbar {
     margin-bottom: 15px;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid rgb(7, 7, 7, 0.7);
     text-align:center;
     position: fixed;
     width: 100%;
@@ -70,11 +79,16 @@ body {
 
 #navBar .navbar-brand {
     letter-spacing: 1.5px;
+}
+
+#navBar .navbar-brand,
+#navBar .nav-link {
     transition: color 0.4s ease-out;
 }
 
-#navBar .navbar-brand:hover {
-    color: blueviolet;
+#navBar .navbar-brand:hover,
+.nav-link:hover {
+    color: rgb(219, 93, 34);
 }
 
 .navbar-brand {
@@ -93,6 +107,7 @@ body {
 
 .nav-link {
     color: black;
+    font-size: 20px;
 }
 
 #navbar-log-sign {
