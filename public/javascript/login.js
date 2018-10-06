@@ -17,6 +17,7 @@ if(sessionStorage.getItem("curatorId") === null){
         //if token checks out, we'll store the data into session storage.
         sessionStorage.setItem("curatorId",data.id);
         sessionStorage.setItem("curatorName",data.username);
+        $(".login-only").show();
       }
     });
   }
