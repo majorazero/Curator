@@ -1,5 +1,5 @@
-//meaning session storage isn't empty
-if(sessionStorage.length < 1){
+//meaning session storage has a curatorId
+if(sessionStorage.getItem("curatorId") !== null){
   //if session storage doesn't exist, let's check for a token.
   if(localStorage.getItem("token")!== null){
     //well call a post route for tokens here
@@ -13,7 +13,6 @@ if(sessionStorage.length < 1){
       //if token checks out, we'll store the data into session storage.
       sessionStorage.setItem("curatorId",data.id);
       sessionStorage.setItem("curatorName",data.username);
-      console.log(sessionStorage);
     });
   }
   //if it equals null nothing happens, because you need to login.
@@ -41,11 +40,18 @@ $("#login").on("submit",function(event){
       console.log("User not found!");
     }
     else {
-      console.log(data);
       sessionStorage.setItem("curatorId",data.id);
       localStorage.setItem("token",data.token);
-      console.log(localStorage.getItem("token"));
-      console.log(sessionStorage.getItem("curatorId"));
     }
+    $("#log-sign-modal").modal("toggle");
   });
+});
+
+//logout functionality
+$("#logout").on("click",function(){
+  console.log(sessionStorage,localStorage);
+  //clears out sessionStorage and localStorage
+  sessionStorage.clear();
+  localStorage.clear();
+  $("#profileModal").modal("toggle");
 });
