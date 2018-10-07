@@ -22,7 +22,8 @@ module.exports = function(app){
         {model: db.Clan}
       ]
     }).then(function(data){
-      console.log(data);
+      let byFour = helper.exploreDataFormatter(data,"Clan");
+      return res.render("index",{byFour});
     });
   });
 };
