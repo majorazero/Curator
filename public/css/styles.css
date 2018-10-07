@@ -30,11 +30,6 @@ body {
     border-radius: 30px;
 }
 
-<<<<<<< HEAD
-.group-img-text{
-    text-align:center;
-    background-color:lightskyblue;
-=======
 .card-body {
     text-align:center; 
 }
@@ -61,7 +56,6 @@ body {
 
 .list-group-item {
     text-align: center;
->>>>>>> modify hbs templates: unfinished
 }
 
 .navbar {
