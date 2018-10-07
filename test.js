@@ -1,13 +1,12 @@
-const crypto = require("crypto");
+let db = require("./models");
 
-let mykey = crypto.createCipher("aes-128-cbc","password");
-let token = mykey.update("dummy",'utf8','hex');
-token += mykey.final('hex');
-
-console.log(token);
-
-let mykeyDec = crypto.createDecipher("aes-128-cbc","password");
-let pass = mykeyDec.update(token,'hex','utf8');
-pass += mykeyDec.final('utf8');
-
-console.log(pass);
+db.Clan.create({
+  name: "LA Hotdog Club",
+  location: "LA",
+  isPublic: true
+});
+db.Clan.create({
+  name: "SGV Beer Crawl",
+  location: "San Gabriel",
+  isPublic: true
+});
