@@ -36,8 +36,32 @@ db.Clan.create({
   blurb: "I'm not sure why we named ourselves this.",
   isPublic: true
 });
-
+db.Clan.create({
+  name: "KKK Kitchen Club",
+  location: "Kingston",
+  blurb: "For racist assholes only.",
+  isPublic: false
+});
 db.User.create({
   username: "dummy",
   password: "dummy"
+});
+db.Membership.create({
+  clanId: 2,
+  userId: 1,
+  isMember: true
+});
+db.Membership.create({
+  clanId: 6,
+  userId: 1
+});
+db.Membership.create({
+  clanId: 8,
+  userId: 1,
+  isMember: true,
+  isAdmin: true
+});
+db.Membership.create({
+  clanId: 10,
+  userId: 1
 });
