@@ -7,17 +7,11 @@ module.exports = (sequelize, DataTypes) => {
     const Clan = sequelize.define("Clan", {
         name: {
             type: DataTypes.STRING(100),
-            allowNull: false,
-            validate: {
-                is: /^[a-z]{2,20}(\s[a-z]{2,20}){0,4}$/i
-            }
+            allowNull: false
         },
         location: {
             type: DataTypes.STRING(100),
-            allowNull: false,
-            validate: {
-                is: /^[a-z]{2,20}(\s[a-z]{2,20}){0,4}$/i
-            }
+            allowNull: false
         },
         blurb: {
           type: DataTypes.TEXT
