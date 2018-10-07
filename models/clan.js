@@ -19,6 +19,9 @@ module.exports = (sequelize, DataTypes) => {
                 is: /^[a-z]{2,20}(\s[a-z]{2,20}){0,4}$/i
             }
         },
+        blurb: {
+          type: DataTypes.TEXT
+        },
         isPublic: {
             type: DataTypes.BOOLEAN,
             allowNull: false,

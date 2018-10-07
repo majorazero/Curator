@@ -1,40 +1,26 @@
 <div class="row main-row-style">
-    <div id="Card" class="card" style="width: 18rem;">
-       <figure class="figure">
-            <img class="card-img-top figure-img" src="http://www.richmondtherapycenter.com/userfiles/601861/image/grouptherapy.PNG" alt="Card image cap">
-        </figure>
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-        <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-        </div>
-    </div>
-    <div id="Card" class="card" style="width: 18rem;">
-       <figure class="figure">
-            <img class="card-img-top figure-img" src="http://blog.ebta.nu/wp-content/uploads/2012/05/group.png">
-        </figure>
-        <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        </div>
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-        </ul>
-        <div class="card-body">
-            <a href="#" class="card-link">Card link</a>
-            <a href="#" class="card-link">Another link</a>
-        </div>
-    </div>
+    {{#each clans}}
+      <div id="Card" class="card" style="width: 18rem;">
+        <!-- group image -->
+        <figure class="figure">
+             <img class="card-img-top figure-img" src="http://www.richmondtherapycenter.com/userfiles/601861/image/grouptherapy.PNG" alt="Card image cap">
+         </figure>
+         <div class="card-body">
+             <h5 class="card-title">{{name}}</h5>
+             <p class="card-text">{{blurb}}</p>
+         </div>
+         <!-- might remove the next 2 secions if they don't do anything -->
+         <ul class="list-group list-group-flush">
+             <li class="list-group-item">Cras justo odio</li>
+             <li class="list-group-item">Dapibus ac facilisis in</li>
+             <li class="list-group-item">Vestibulum at eros</li>
+         </ul>
+         <div class="card-body">
+             <a href="#" class="card-link">Card link</a>
+             <a href="#" class="card-link">Another link</a>
+         </div>
+      </div>
+    {{/each}}
     <div id="Card" class="card" style="width: 18rem;">
        <figure class="figure">
             <img class="card-img-top figure-img" src="https://static1.squarespace.com/static/55ca49f3e4b0f3c31736e3de/t/589a16099de4bbc5210a8a58/1486493211850/?format=750w" alt="Card image cap">
