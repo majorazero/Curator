@@ -6,13 +6,9 @@
 $("#follow-btn").on("click",function(event){
   event.preventDefault();
   window.location.replace("/yourFollows/"+sessionStorage.getItem("curatorId"));
-  // $.ajax({
-  //   url: "/yourFollows/"+sessionStorage.getItem("curatorId"),
-  //   type: "GET"
-  // }).then(function(data){
-  //   //location.reload();
-  //   //document.write(data);
-  //   window.location = "/yourFollows/"+sessionStorage.getItem("curatorId");
-  // });
-  //window.location = "/yourFollows/"+sessionStorage.getItem("curatorId");
 });
+
+$("#group-btn").on("click",function(event){
+  event.preventDefault();
+  window.location.replace("/yourGroups/"+sessionStorage.getItem("curatorId"));
+})

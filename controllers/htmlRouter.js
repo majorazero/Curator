@@ -27,4 +27,19 @@ module.exports = function(app){
       //res.json({byFour});
     });
   });
+
+  app.get("/yourGroups/:id",function(req,res){
+    db.Membership.findAll({
+      where: {
+        userId: req.params.id,
+        isMember: true
+      },
+      include: [
+        {model: db.Clan}
+      ]
+    }).then(function(data){
+      let byFour = helper.exploreDataFormatter(data,"Clan");
+      res.render("index",{byFour: byFour});
+    });
+  });
 };

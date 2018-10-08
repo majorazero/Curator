@@ -5,7 +5,7 @@ $("#navbar-log-sign").on("click", function(){
   if(sessionStorage.getItem("curatorId") !== null){
     let profileBody = $("#profileBody");
     profileBody.empty();
-    let imgDiv = $("<div>").append("<img id='profileImageModal' class='img-fluid' src='images/dummy-icon.png' />");
+    let imgDiv = $("<div>").append("<img id='profileImageModal' class='img-fluid' src='/images/dummy-icon.png' />");
     let userNameDiv = $("<div>").text(sessionStorage.curatorName).attr("id","profileUsernameModal");
     profileBody.append(imgDiv).append(userNameDiv);
     $("#profileModal").modal("show");
