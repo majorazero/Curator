@@ -13,10 +13,10 @@ module.exports = function(app){
     });
   });
 
-  app.post("/yourFollows",function(req,res){
+  app.get("/yourFollows/:id",function(req,res){
     db.Membership.findAll({
       where: {
-        userId: req.body.userId
+        userId: req.params.id
       },
       include: [
         {model: db.Clan}
@@ -25,6 +25,21 @@ module.exports = function(app){
       let byFour = helper.exploreDataFormatter(data,"Clan");
       res.render("index",{byFour: byFour});
       //res.json({byFour});
+    });
+  });
+
+  app.get("/yourGroups/:id",function(req,res){
+    db.Membership.findAll({
+      where: {
+        userId: req.params.id,
+        isMember: true
+      },
+      include: [
+        {model: db.Clan}
+      ]
+    }).then(function(data){
+      let byFour = helper.exploreDataFormatter(data,"Clan");
+      res.render("index",{byFour: byFour});
     });
   });
 };

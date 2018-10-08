@@ -5,15 +5,10 @@
 
 $("#follow-btn").on("click",function(event){
   event.preventDefault();
-  $.ajax({
-    url: "/yourFollows",
-    type: "POST",
-    data: {
-      userId: sessionStorage.getItem("curatorId")
-    }
-  }).then(function(data){
-    //location.reload();
-    //document.write(data);
-    //window.location = "/yourFollows";
-  });
+  window.location.replace("/yourFollows/"+sessionStorage.getItem("curatorId"));
 });
+
+$("#group-btn").on("click",function(event){
+  event.preventDefault();
+  window.location.replace("/yourGroups/"+sessionStorage.getItem("curatorId"));
+})
