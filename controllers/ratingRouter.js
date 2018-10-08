@@ -56,6 +56,22 @@ module.exports = (app) => {
             res.status(404).json(err);
         });
     });
+
+    app.get("/api/ratings/checkExist/:clanId/:yelpId", (req,res) => {
+      console.log(req.params.clanId,req.params.yelpId);
+      db.Rating.findAll({
+        where: {
+          clanId: req.params.clanId
+
+        },
+        include: [
+          {model: db.Restaurant, where:{yelpId: req.params.yelpId}}
+        ]
+      }).then(function(data){
+        res.json(data);
+      });
+    });
+
     // Create a rating
     app.post("/api/ratings", (req, res) => {
         db.Rating

@@ -1,6 +1,7 @@
 $(".firstLayerClickable").on("click",function(){
   let clanName = $(this).attr("data-name");
   let clanId = $(this).attr("data-id");
+  sessionStorage.setItem("currentClan",clanId);
   $.ajax({
     url: "/api/ratings/groupRest",
     type: "POST",
