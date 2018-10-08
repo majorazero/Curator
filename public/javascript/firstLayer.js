@@ -1,14 +1,18 @@
 $(".cardCard").on("click",function(){
   let clanName = $(this).attr("data-name");
+  let clanId = $(this).attr("data-id");
   $.ajax({
     url: "/api/ratings/groupRest",
     type: "POST",
     data: {
       userId: sessionStorage.getItem("curatorId"),
-      clanId: $(this).attr("data-id")
+      clanId: clanId
     }
   }).then(function(data){
     console.log(data);
+    //we'll set this module's expand button attribute's data id and data name too.
+    $("#firstLayerFooter").attr("data-name",clanName);
+    $("#firstLayerFooter").attr("data-id",clanId);
     //constructs the scroll menu content
     $("#firstLayerTitle").text(clanName);
     $("#firstLayerScroll").empty();

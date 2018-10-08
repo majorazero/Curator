@@ -1,10 +1,3 @@
-//Top 5 choices modal
-$("#expand-btn").on("click", function () {
-    $("body").css("overflow", "hidden");
-    $('#firstLayerModal').modal('hide');
-    $('#expanded-modal').modal('show');
-});
-
 /**
 * Modal event handler for the login button.
 */
