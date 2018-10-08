@@ -1,5 +1,5 @@
 let db = require("./models");
-//
+// //
 // db.Clan.create({
 //   name: "LA Hotdog Club",
 //   location: "LA",
@@ -59,16 +59,16 @@ let db = require("./models");
 //   clanId: 6,
 //   userId: 1
 // });
-db.Membership.create({
-  clanId: 3,
-  userId: 1,
-  isMember: true,
-  isAdmin: true
-});
-db.Membership.create({
-  clanId: 7,
-  userId: 1
-});
+// db.Membership.create({
+//   clanId: 3,
+//   userId: 1,
+//   isMember: true,
+//   isAdmin: true
+// });
+// db.Membership.create({
+//   clanId: 7,
+//   userId: 1
+// });
 // db.Restaurant.create({
 //   name: "Hot Dog Lady",
 //   imageLink: "https://s3-media4.fl.yelpcdn.com/bphoto/QbZ1LQkGm6xP9VNCWwxU2g/o.jpg",
@@ -104,7 +104,7 @@ db.Membership.create({
 //   yelpId: "rIv6gmAFTxNFgnxW2S7-iA",
 //   price: "$"
 // });
-//
+
 // db.Rating.create({
 //   rating: 5,
 //   comment: "It's good.",
