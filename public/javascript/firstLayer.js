@@ -16,8 +16,9 @@ $(".cardCard").on("click",function(){
       let firstScroll = $("<div>").addClass("card scroll-bar-item");
       firstScroll.append("<div>"+data[i].Restaurant.name+"</div>");
       firstScroll.append("<div><img class='img-fluid' src='"+data[i].Restaurant.imageLink+"' /></div>");
+      //have to figure out how ratings works.
       firstScroll.append("<div>*****</div>");
-      firstScroll.append("<div>$$$</div>");
+      firstScroll.append("<div>"+data[i].Restaurant.price+"</div>");
       $("#firstLayerScroll").append(firstScroll);
     }
     $("#firstLayerModal").modal("show");
