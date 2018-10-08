@@ -44,6 +44,9 @@ $("#inviteCode").on("click", function () {
 //New group modal functionality
 $("#create-new-group").on("click", function () {
   $("#new-group-modal").modal("show");
+  $("#groupnameWarningMessage").hide();
+  $("#locationWarningMessage").hide();
+  $("#clanImageWarningMessage").hide();
 });
 
 
@@ -51,13 +54,19 @@ $("#create-new-group").on("click", function () {
 $("#new-group-submit").on("click", function (event) {
   event.preventDefault();
   console.log("clicked");
+
   var newGroup = {
     name: $("#group-input").val().trim(),
     location: $("#location-input").val().trim(),
     isPublic: $("#pub-priv-input").val().trim(),
     clanImage: $("#clan-img-input").val().trim()
   };
+ 
   if (newGroup.name && newGroup.location && newGroup.clanImage) {
+    $("#group-input").val(""),
+    $("#location-input").val(""),
+    $("#clan-img-input").val(""),
+
     $.post("/api/clans/new", newGroup)
       .then(function (clanid) {
         var addMember = {
@@ -73,17 +82,18 @@ $("#new-group-submit").on("click", function (event) {
             window.location.href = '/yourGroups/' + sessionStorage.getItem("curatorId");
           })
       });
+
   }
   else {
 
     if (!newGroup.name) {
-      alert("Name Needed")
+      $("#groupnameWarningMessage").show();
     }
     if (!newGroup.location) {
-      alert("Location Needed")
+      $("#locationWarningMessage").show();
     }
     if (!newGroup.clanImage) {
-      alert("Image Link Needed")
+      $("#clanImageWarningMessage").show();
     }
   }
 });
