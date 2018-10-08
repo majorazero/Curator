@@ -15,10 +15,10 @@ $("#navbar-log-sign").on("click", function(){
   }
 });
 
-//Back button from expand to returant modal
+//Back button from expand to firstLayer modal
 $("#backto-scroll-modal").on("click", function () {
     $('#expanded-modal').modal('hide');
-    $('#exampleModalCenter').modal('show');
+    $('#firstLayerModal').modal('show');
 });
 
 $('.scrollmenu').mousewheel(function (e, delta) {
