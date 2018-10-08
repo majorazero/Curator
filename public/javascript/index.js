@@ -39,3 +39,10 @@ $("#flagModButts").on("click", function(){
 $("#inviteCode").on("click",function(){
   $("#inviteCodeModal").modal("show");
 });
+
+
+//New group modal functionality
+$("#create-new-group").on("click",function(){
+    $("#new-group-modal").modal("show");
+  });
+  
