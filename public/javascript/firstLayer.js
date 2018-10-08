@@ -1,4 +1,4 @@
-$(".cardCard").on("click",function(){
+$(".firstLayerClickable").on("click",function(){
   let clanName = $(this).attr("data-name");
   let clanId = $(this).attr("data-id");
   $.ajax({

@@ -1,7 +1,8 @@
 {{#each byFour}}
   <div class="row main-row-style">
     {{#each clans}}
-      <div data-id={{id}} data-name='{{name}}' class="card cardCard" style="width: 18rem;">
+      <div class="card cardCard" style="width: 18rem;">
+        <div data-id={{id}} data-name='{{name}}' class = "firstLayerClickable">
         <!-- group image -->
         <figure class="figure">
              <img class="card-img-top figure-img" src="http://www.richmondtherapycenter.com/userfiles/601861/image/grouptherapy.PNG" alt="Card image cap">
@@ -16,9 +17,10 @@
              <li class="list-group-item">Dapibus ac facilisis in</li>
              <li class="list-group-item">Vestibulum at eros</li>
          </ul>
+       </div>
          <div class="card-body">
-             <a href="#" class="card-link">Card link</a>
-             <a href="#" class="card-link">Another link</a>
+           <a href="#" class="card-link">Follow</a>
+           <a href="#" class="card-link">Unfollow</a>
          </div>
       </div>
     {{/each}}
