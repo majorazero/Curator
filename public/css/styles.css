@@ -16,10 +16,10 @@ body {
 }
 
 .card {
-    align-self: stretch;
     margin: 20px 0px 20px 0px;
     cursor: pointer;
     opacity: .85;
+    align-self: baseline;
 }
 
 .cardCard {
@@ -39,11 +39,14 @@ body {
 .list-group-item {
     text-align: center;
     background-color:rgb(27, 27, 27) ;
+    /* border-top: 1px solid whitesmoke; */
+    /* border-top: 1px solid whitesmoke; */
 }
 
 .Card-Body-Bottom {
     border-bottom-left-radius: 30px;
     border-bottom-right-radius: 30px;
+    /* border-top: 1px solid whitesmoke; */
 }
 
 .card-title {
