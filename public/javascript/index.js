@@ -56,8 +56,9 @@ $("#create-new-group").on("click",function(){
       location: $("#location-input").val().trim(),
       isPublic: $("#pub-priv-input").val().trim()
     };
-console.log(newGroup)
-    $.post("/api/clans/new", newGroup)
+    if(newGroup.name && newGroup.location){
+      console.log("Name needed")
+      $.post("/api/clans/new", newGroup)
       .then(function(clanid) {
         var addMember = {
           isAdmin: true,
@@ -72,5 +73,16 @@ console.log(newGroup)
           window.location.href = '/yourGroups/'+ sessionStorage.getItem("curatorId");
         })
       });
+    }
+    else {
+
+      if (newGroup.name){
+        alert("Location needed");
+      } else {
+        alert("Name Needed")
+      }
+    }
+
+
   });
   
