@@ -73,6 +73,21 @@ module.exports = (app) => {
             res.status(404).json(err);
         });
     });
+
+    app.post("/api/ratings/groupRest", (req, res) => {
+      db.Rating.findAll({
+        where: {
+          clanId: req.body.clanId
+        },
+        include: [
+          {model: db.Restaurant},
+          {model: db.Clan}
+        ]
+      }).then(function(data){
+        res.json(data);
+      });
+    });
+
     // Update rating
     app.put("/api/ratings/:id", (req, res) => {
         db.Rating

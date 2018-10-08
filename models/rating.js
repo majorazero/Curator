@@ -7,17 +7,11 @@ module.exports = (sequelize, DataTypes) => {
     const Rating = sequelize.define("Rating", {
         rating: {
             type: DataTypes.INTEGER(2),
-            allowNull: false,
-            validate: {
-                isNumeric: true
-            }
+            allowNull: false
         },
         comment: {
             type: DataTypes.TEXT,
-            allowNull: true,
-            validate: {
-                is: /(?=.*[a-z1-9\.\s'"-]{4,})(?!.*[^a-z1-9\.\s'"\-\!\?])/i
-            }
+            allowNull: true
         }
     });
     Rating.associate = (models) => {

@@ -1,7 +1,7 @@
 {{#each byFour}}
   <div class="row main-row-style">
     {{#each clans}}
-      <div id="Card" data-id={{id}} class="card cardCard" style="width: 18rem;">
+      <div data-id={{id}} data-name='{{name}}' class="card cardCard" style="width: 18rem;">
         <!-- group image -->
         <figure class="figure">
              <img class="card-img-top figure-img" src="http://www.richmondtherapycenter.com/userfiles/601861/image/grouptherapy.PNG" alt="Card image cap">
@@ -25,70 +25,24 @@
   </div>
 {{/each}}
 
-<!-- Modal -->
-<div class="modal fade modal-body" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
+<!-- More info Modal -->
+<div class="modal fade modal-body" id="firstLayerModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered1 " role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Group Name -Top Picks</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h5 class="modal-title" id="firstLayerTitle"></h5>
             </div>
             <!-- Modal Body -->
             <div class="modal-body">
                 <!-- Scroll Modal -->
-                <div class="scrollmenu">
-                    <div class="card scroll-bar-item">
+                <div id="firstLayerScroll" class="scrollmenu">
+                    <!-- <div class="card scroll-bar-item">
                         <div>Restaurant Name</div>
                         <div>Group Members</div>
                         <div class="modal-res-image"><img class="img-fluid" src="https://img.freepik.com/free-vector/pizzeria-logo_1051-1483.jpg" /></div>
                         <div>*****</div>
                         <div>$$$$$</div>
-                    </div>
-                    <div class="card scroll-bar-item">
-                        <div>Restaurant Name</div>
-                        <div>Group Members</div>
-                        <div class="modal-res-image"><img class="img-fluid" src="https://img.freepik.com/free-vector/pizzeria-logo_1051-1483.jpg" /></div>
-                        <div>*****</div>
-                        <div>$$$$$</div>
-                    </div>
-                    <div class="card scroll-bar-item">
-                        <div>Restaurant Name</div>
-                        <div>Group Members</div>
-                        <div class="modal-res-image"><img class="img-fluid" src="https://img.freepik.com/free-vector/pizzeria-logo_1051-1483.jpg" /></div>
-                        <div>*****</div>
-                        <div>$$$$$</div>
-                    </div>
-                    <div class="card scroll-bar-item">
-                        <div>Restaurant Name</div>
-                        <div>Group Members</div>
-                        <div class="modal-res-image"><img class="img-fluid" src="https://img.freepik.com/free-vector/pizzeria-logo_1051-1483.jpg" /></div>
-                        <div>*****</div>
-                        <div>$$$$$</div>
-                    </div>
-                    <div class="card scroll-bar-item">
-                        <div>Restaurant Name</div>
-                        <div>Group Members</div>
-                        <div class="modal-res-image"><img class="img-fluid" src="https://img.freepik.com/free-vector/pizzeria-logo_1051-1483.jpg" /></div>
-                        <div>*****</div>
-                        <div>$$$$$</div>
-                    </div>
-                    <div class="card scroll-bar-item">
-                        <div>Restaurant Name</div>
-                        <div>Group Members</div>
-                        <div class="modal-res-image"><img class="img-fluid" src="https://img.freepik.com/free-vector/pizzeria-logo_1051-1483.jpg" /></div>
-                        <div>*****</div>
-                        <div>$$$$$</div>
-                    </div>
-                    <div class="card scroll-bar-item">
-                        <div>Restaurant Name</div>
-                        <div>Group Members</div>
-                        <div class="modal-res-image"><img class="img-fluid" src="https://img.freepik.com/free-vector/pizzeria-logo_1051-1483.jpg" /></div>
-                        <div>*****</div>
-                        <div>$$$$$</div>
-                    </div>
+                    </div> -->
                 </div>
             <!-- Modal Footer -->
             <div class="modal-footer">
@@ -102,13 +56,12 @@
     </div>
 </div>
 
-<!-- Modal #2 -->
-<div class="modal fade" id="expanded-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-    aria-hidden="true">
+<!-- Expanded Modal -->
+<div class="modal fade" id="expanded-modal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered2" role="document">
         <div class="modal-content" id="modal-textfix">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Group Name</h5>
+                <h5 class="modal-title" id="expandedModalTitle">Group Name</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -442,5 +395,5 @@
   </div>
 </div>
 
-
+<script src="javascript/firstLayer.js"></script>
 <script src="javascript/index.js"></script>

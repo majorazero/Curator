@@ -1,22 +1,7 @@
-
-$("#Card").on("click", function () {
-    $('#exampleModalCenter').modal('show');
-});
-
-
-$("#Card").on("click", function () {
-    $('#exampleModalCenter').modal('show');
-});
-
-
-$("#Card").on("click", function () {
-    $('#exampleModalCenter').modal('show');
-});
-
 //Top 5 choices modal
 $("#expand-btn").on("click", function () {
     $("body").css("overflow", "hidden");
-    $('#exampleModalCenter').modal('hide');
+    $('#firstLayerModal').modal('hide');
     $('#expanded-modal').modal('show');
 });
 

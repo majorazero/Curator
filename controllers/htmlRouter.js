@@ -23,7 +23,8 @@ module.exports = function(app){
       ]
     }).then(function(data){
       let byFour = helper.exploreDataFormatter(data,"Clan");
-      return res.render("index",{byFour});
+      res.render("index",{byFour});
+      //res.json({byFour});
     });
   });
 };

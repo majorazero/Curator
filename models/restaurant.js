@@ -7,10 +7,7 @@ module.exports = (sequelize, DataTypes) => {
     const Restaurant = sequelize.define("Restaurant", {
         name: {
             type: DataTypes.STRING(100),
-            allowNull: false,
-            validate: {
-                is: /^[a-z]{2,20}(\s[a-z]{2,20}){0,4}$/i
-            }
+            allowNull: false
         },
         imageLink: {
             type: DataTypes.STRING,
@@ -21,14 +18,15 @@ module.exports = (sequelize, DataTypes) => {
         },
         address: {
             type: DataTypes.STRING(100),
-            allowNull: false,
-            validate: {
-                is: /^[a-z]{2,20}(\s[a-z]{2,20}){0,4}$/i
-            }
+            allowNull: false
         },
         yelpId: {
             type: DataTypes.STRING,
             allowNull: false
+        },
+        price: {
+          type: DataTypes.STRING,
+          allowNull: false
         }
     });
     return Restaurant;
