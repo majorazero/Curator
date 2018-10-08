@@ -101,6 +101,7 @@ module.exports = function (app) {
 
     // POST route for saving a new restaurant
     app.post("/api/memberships", function (req, res) {
+        console.log("Route hit~!")
         db.Membership.create({
             isAdmin: req.body.isAdmin,
             isMember: req.body.isMember,

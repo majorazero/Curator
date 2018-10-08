@@ -79,8 +79,9 @@ module.exports = (app) => {
             location: req.body.location,
             isPublic: req.body.isPublic
         })
-        .then(() => {
-            res.status(200).json("New clan made");
+        .then((data) => {
+            console.log("New Group Added")
+            res.status(200).json(data.id);
         })
         .catch((err) => {
             res.status(404).json(err);

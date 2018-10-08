@@ -1,98 +1,99 @@
 {{#each byFour}}
-  <div class="row main-row-style">
-    {{#each clans}}
-      <div class="card cardCard" style="width: 18rem;">
-        <div data-id={{id}} data-name='{{name}}' class = "firstLayerClickable">
-        <!-- group image -->
-        <figure class="figure">
-             <img class="card-img-top figure-img" src="http://www.richmondtherapycenter.com/userfiles/601861/image/grouptherapy.PNG" alt="Card image cap">
-         </figure>
-         <div class="card-body">
-             <h5 class="card-title">{{name}}</h5>
-             <p class="card-text">{{blurb}}</p>
-         </div>
-         <!-- might remove the next 2 secions if they don't do anything -->
-         <ul class="list-group list-group-flush">
-             <li class="list-group-item">Cras justo odio</li>
-             <li class="list-group-item">Dapibus ac facilisis in</li>
-             <li class="list-group-item">Vestibulum at eros</li>
-         </ul>
-       </div>
-         <div class="card-body">
-           <a href="#" class="card-link">Follow</a>
-           <a href="#" class="card-link">Unfollow</a>
-         </div>
+<div class="row main-row-style">
+  {{#each clans}}
+  <div class="card cardCard" style="width: 18rem;">
+    <div data-id={{id}} data-name='{{name}}' class="firstLayerClickable">
+      <!-- group image -->
+      <figure class="figure">
+        <img class="card-img-top figure-img" src="http://www.richmondtherapycenter.com/userfiles/601861/image/grouptherapy.PNG"
+          alt="Card image cap">
+      </figure>
+      <div class="card-body">
+        <h5 class="card-title">{{name}}</h5>
+        <p class="card-text">{{blurb}}</p>
       </div>
-    {{/each}}
+      <!-- might remove the next 2 secions if they don't do anything -->
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Vestibulum at eros</li>
+      </ul>
+    </div>
+    <div class="card-body">
+      <a href="#" class="card-link">Follow</a>
+      <a href="#" class="card-link">Unfollow</a>
+    </div>
   </div>
+  {{/each}}
+</div>
 {{/each}}
 
 <!-- More info Modal -->
 <div class="modal fade modal-body" id="firstLayerModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered1 " role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="firstLayerTitle"></h5>
-            </div>
-            <!-- Modal Body -->
-            <div class="modal-body">
-                <!-- Scroll Modal -->
-                <div id="firstLayerScroll" class="scrollmenu">
-                    <!-- <div class="card scroll-bar-item">
+  <div class="modal-dialog modal-dialog-centered1 " role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="firstLayerTitle"></h5>
+      </div>
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <!-- Scroll Modal -->
+        <div id="firstLayerScroll" class="scrollmenu">
+          <!-- <div class="card scroll-bar-item">
                         <div>Restaurant Name</div>
                         <div>Group Members</div>
                         <div class="modal-res-image"><img class="img-fluid" src="https://img.freepik.com/free-vector/pizzeria-logo_1051-1483.jpg" /></div>
                         <div>*****</div>
                         <div>$$$$$</div>
                     </div> -->
-                </div>
-            <!-- Modal Footer -->
-            <div id='firstLayerFooter'class="modal-footer">
-                <button type="button" class="btn btn-secondary" id="flagModButts">flag</button>
-                <button type="button" class="btn btn-primary">watch</button>
-                <button type="button" class="btn btn-primary" id="expand-btn" data-toggle="button">Expand</button>
-            </div>
         </div>
+        <!-- Modal Footer -->
+        <div id='firstLayerFooter' class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="flagModButts">flag</button>
+          <button type="button" class="btn btn-primary">watch</button>
+          <button type="button" class="btn btn-primary" id="expand-btn" data-toggle="button">Expand</button>
+        </div>
+      </div>
 
-        </div>
     </div>
+  </div>
 </div>
 
 <!-- Expanded Modal -->
 <div class="modal fade" id="expanded-modal" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Add restuarant modal -->
+  <!-- Add restuarant modal -->
 
-    <div class="modal fade" id="addRest" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="addRestTitle">Restaurant Search</h5>
-          </div>
-          <div id="addRestBody" class="modal-body">
-            <form>
-              <div class="form-group">
-                <label class="col-form-label">Restaurant Name:</label>
-                <input type="text" class="form-control" id="restSearch">
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary">Search</button>
-          </div>
+  <div class="modal fade" id="addRest" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addRestTitle">Restaurant Search</h5>
+        </div>
+        <div id="addRestBody" class="modal-body">
+          <form>
+            <div class="form-group">
+              <label class="col-form-label">Restaurant Name:</label>
+              <input type="text" class="form-control" id="restSearch">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary">Search</button>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class="modal-dialog modal-dialog-centered2" role="document">
-        <div class="modal-content" id="modal-textfix">
-            <div class="modal-header">
-                <h5 class="modal-title" id="expandedModalTitle"></h5>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div id="expanded-scrollMenu" class="col-sm-11 scrollmenu2">
+  <div class="modal-dialog modal-dialog-centered2" role="document">
+    <div class="modal-content" id="modal-textfix">
+      <div class="modal-header">
+        <h5 class="modal-title" id="expandedModalTitle"></h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div id="expanded-scrollMenu" class="col-sm-11 scrollmenu2">
 
-                        <!-- <div class="row group-rest-info">
+            <!-- <div class="row group-rest-info">
                           <div class="col-sm-3">
                               <div class="rest-img"><img class="img-fluid" src="https://img.freepik.com/free-vector/pizzeria-logo_1051-1483.jpg" /></div>
                           </div>
@@ -106,27 +107,27 @@
                           </div>
                         </div> -->
 
-                    </div>
-                    <div class="col-sm-1">
-                        <i class="far fa-comments"></i>
-                        <br>
-                        <i class="fas fa-bars"></i>
-                        <br>
-                        <i class="fas fa-share-alt"></i>
-                        <br>
-                        <i class="fas fa-paper-plane"></i>
-                        <br>
-                        <i class="fas fa-bullhorn"></i>
-                        <br>
-                        <i id='addRestButton' class="fas fa-plus"></i>
-                    </div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" id="backto-scroll-modal" class="btn btn-primary">Back</button>
-            </div>
+          </div>
+          <div class="col-sm-1">
+            <i class="far fa-comments"></i>
+            <br>
+            <i class="fas fa-bars"></i>
+            <br>
+            <i class="fas fa-share-alt"></i>
+            <br>
+            <i class="fas fa-paper-plane"></i>
+            <br>
+            <i class="fas fa-bullhorn"></i>
+            <br>
+            <i id='addRestButton' class="fas fa-plus"></i>
+          </div>
         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" id="backto-scroll-modal" class="btn btn-primary">Back</button>
+      </div>
     </div>
+  </div>
 </div>
 
 <!-- flag modal -->
@@ -155,12 +156,12 @@
   </div>
 </div>
 
-<<<<<<< HEAD
 
 
 <!-- New Group modal -->
 
-<div class="modal fade" id="new-group-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="new-group-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -173,25 +174,24 @@
         <form>
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Group Name:</label>
-            <input type="text" class="form-control" id="group-name">
+            <input type="text" class="form-control" id="group-input">
           </div>
           <div class="form-group">
             <label for="message-text" class="col-form-label">Location:</label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <textarea class="form-control" id="location-input"></textarea>
           </div>
-              <div class="form-group">
+          <div class="form-group">
             <label for="message-text" class="col-form-label">Public/Private:</label>
-            <select>
-  <option value="Public">Public</option>
-  <option value="Private">Private</option>
-
-</select>
+            <select id="pub-priv-input">
+              <option value="true">Public</option>
+              <option value="false">Private</option>
+            </select>
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <input class="btn btn-primary" type="submit" id="new-group-submit" value="Submit">
       </div>
     </div>
   </div>
@@ -199,13 +199,7 @@
 
 
 
-<script src="javascript/index.js"></script>
-<script src="javascript/addRest.js"></script>
-<script src="javascript/firstLayer.js"></script>
-<script src="javascript/secondLayer.js"></script>
-=======
+<script src="/javascript/index.js"></script>
 <script src="/javascript/addRest.js"></script>
 <script src="/javascript/firstLayer.js"></script>
 <script src="/javascript/secondLayer.js"></script>
-<script src="/javascript/index.js"></script>
->>>>>>> 6ade5584c4ed396ca5b6ed2421bfc84f7f19e26c

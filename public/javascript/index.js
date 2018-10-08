@@ -46,3 +46,31 @@ $("#create-new-group").on("click",function(){
     $("#new-group-modal").modal("show");
   });
   
+
+  //New group submit button + functionality
+  $("#new-group-submit").on("click", function(event) {
+    event.preventDefault();
+    console.log("clicked");
+    var newGroup = {
+      name: $("#group-input").val().trim(),
+      location: $("#location-input").val().trim(),
+      isPublic: $("#pub-priv-input").val().trim()
+    };
+console.log(newGroup)
+    $.post("/api/clans/new", newGroup)
+      .then(function(clanid) {
+        var addMember = {
+          isAdmin: true,
+          isMember: true,
+          userId:sessionStorage.getItem("curatorId"),
+          clanId: clanid
+        }
+        console.log(addMember)
+        $.post("/api/memberships", addMember)
+        .then(function(data){
+          console.log(data)
+          window.location.href = '/yourGroups/'+ sessionStorage.getItem("curatorId");
+        })
+      });
+  });
+  
