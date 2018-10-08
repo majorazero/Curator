@@ -78,7 +78,8 @@ module.exports = (app) => {
             name: req.body.name,
             location: req.body.location,
             isPublic: req.body.isPublic,
-            clanImage: req.body.clanImage
+            clanImage: req.body.clanImage,
+            blurb: req.body.groupDescription
         })
         .then((data) => {
             console.log("New Group Added")

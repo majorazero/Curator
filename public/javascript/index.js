@@ -47,6 +47,8 @@ $("#create-new-group").on("click", function () {
   $("#groupnameWarningMessage").hide();
   $("#locationWarningMessage").hide();
   $("#clanImageWarningMessage").hide();
+  $("#groupdescriptionWarningMessage").hide();
+
 });
 
 
@@ -59,10 +61,12 @@ $("#new-group-submit").on("click", function (event) {
     name: $("#group-input").val().trim(),
     location: $("#location-input").val().trim(),
     isPublic: $("#pub-priv-input").val().trim(),
-    clanImage: $("#clan-img-input").val().trim()
+    clanImage: $("#clan-img-input").val().trim(),
+    groupDescription: $("#groupdescription-input").val().trim()
   };
+  console.log(newGroup.groupDescription)
  
-  if (newGroup.name && newGroup.location && newGroup.clanImage) {
+  if (newGroup.name && newGroup.location && newGroup.clanImage && newGroup.groupDescription) {
     $("#group-input").val(""),
     $("#location-input").val(""),
     $("#clan-img-input").val(""),
@@ -94,6 +98,9 @@ $("#new-group-submit").on("click", function (event) {
     }
     if (!newGroup.clanImage) {
       $("#clanImageWarningMessage").show();
+    }
+    if (!newGroup.groupDescription) {
+      $("#groupdescriptionWarningMessage").show();
     }
   }
 });
