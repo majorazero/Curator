@@ -5,15 +5,14 @@
 
 $("#follow-btn").on("click",function(event){
   event.preventDefault();
-  $.ajax({
-    url: "/yourFollows",
-    type: "POST",
-    data: {
-      userId: sessionStorage.getItem("curatorId")
-    }
-  }).then(function(data){
-    //location.reload();
-    //document.write(data);
-    //window.location = "/yourFollows";
-  });
+  window.location.replace("/yourFollows/"+sessionStorage.getItem("curatorId"));
+  // $.ajax({
+  //   url: "/yourFollows/"+sessionStorage.getItem("curatorId"),
+  //   type: "GET"
+  // }).then(function(data){
+  //   //location.reload();
+  //   //document.write(data);
+  //   window.location = "/yourFollows/"+sessionStorage.getItem("curatorId");
+  // });
+  //window.location = "/yourFollows/"+sessionStorage.getItem("curatorId");
 });

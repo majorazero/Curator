@@ -13,10 +13,10 @@ module.exports = function(app){
     });
   });
 
-  app.post("/yourFollows",function(req,res){
+  app.get("/yourFollows/:id",function(req,res){
     db.Membership.findAll({
       where: {
-        userId: req.body.userId
+        userId: req.params.id
       },
       include: [
         {model: db.Clan}
