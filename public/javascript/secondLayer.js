@@ -10,6 +10,8 @@ $("#expand-btn").on("click", function () {
       }
     }).then(function(data){
       console.log(data);
+      $("#expanded-scrollMenu").empty();
+      //constructs scrollmenu for expanded
       for(let i = 0; i < data.length; i++){
         let outerWrapper = $("<div>").addClass("row group-rest-info");
         let restPortrait = $("<div>").addClass("col-sm-3 rest-img");
