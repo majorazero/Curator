@@ -13,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING(100),
             allowNull: false
         },
+        clanImage: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
         blurb: {
           type: DataTypes.TEXT
         },
