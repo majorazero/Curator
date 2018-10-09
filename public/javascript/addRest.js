@@ -10,9 +10,9 @@ $("#addRestButton").on("click",function(){
 $("#addRestSearchButt").on("click",function(){
   $.ajax({
     type: "GET",
-    url: "/api/yelp/LA/"+$("#restSearch").val()
+    url: "/api/yelp/"+sessionStorage.getItem("currentLoc")+"/"+$("#restSearch").val()
   }).then(function(data){
-    console.log(sessionStorage);
+    console.log(data.businesses);
     currentDataSet = data.businesses;
     //loop through the 20
     $("#restResult").empty();
@@ -49,8 +49,15 @@ $("#addRestSearchButt").on("click",function(){
       let infoCard = $("<div>").addClass("col-sm-7");
       $(infoCard).append("<div class='rest-name'>"+data.businesses[i].name+"</div>");
       $(infoCard).append("<div class='rest-address'>"+data.businesses[i].location.display_address[0]+"</div>");
-      $(infoCard).append("<div class='rest-address'>"+data.businesses[i].location.display_address[1]+"</div>");
-      $(infoCard).append("<div class='rest-price' >"+data.businesses[i].price+"</div>");
+      if(data.businesses[i].location.display_address[1] !== undefined){
+        $(infoCard).append("<div class='rest-address'>"+data.businesses[i].location.display_address[1]+"</div>");
+      }
+      if(data.businesses[i].price === undefined){
+        $(infoCard).append("<div class='rest-price' >No earthly idea.</div>");
+      }
+      else{
+        $(infoCard).append("<div class='rest-price' >"+data.businesses[i].price+"</div>");
+      }
       $(outerWrapper).append(restPortrait);
       $(outerWrapper).append(infoCard);
       $("#restResult").append(outerWrapper);
