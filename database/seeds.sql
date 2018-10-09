@@ -25,12 +25,12 @@ VALUES
     ("cloudPUFF", "password29", NOW(), NOW());
 
 INSERT INTO Clans
-    (name, location, isPublic, hasPermission, createdAt, updatedAt)
+    (name, location, clanImage, isPublic, hasPermission, createdAt, updatedAt)
 VALUES
-    ("Bo Janglers", "los angeles", true, true, NOW(), NOW()),
-    ("Rooftop Hussies", "chicago", true, true, NOW(), NOW()),
-    ("Flapjack Fireballs", "portland", true, true, NOW(), NOW()),
-    ("THEM", "new york", true, true, NOW(), NOW());
+    ("Bo Janglers", "los angeles", "https://c.stocksy.com/a/KA6900/z9/2168656.jpg", true, true, NOW(), NOW()),
+    ("Rooftop Hussies", "chicago", "https://c.stocksy.com/a/DAK200/z9/554169.jpg", true, true, NOW(), NOW()),
+    ("Flapjack Fireballs", "portland", "https://c.stocksy.com/a/tC7800/z9/1934331.jpg", true, true, NOW(), NOW()),
+    ("THEM", "new york", "https://c.stocksy.com/a/7q2900/z9/2155871.jpg", true, true, NOW(), NOW());
 
 INSERT INTO Restaurants
     (name, imageLink, address, yelpId, createdAt, updatedAt)
