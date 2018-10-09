@@ -44,10 +44,12 @@ $("#login").on("submit",function(event){
     if(data === "womp"){
       $("#inputPassword").val("");
       $("#loginPassWarning").show();
+      $("#log-sign-modal").effect("shake");
     }
     else if(data === "womp2"){
       $("#inputUsername").val("");
       $("#loginUserWarning").show();
+      $("#log-sign-modal").effect("shake");
     }
     else {
       sessionStorage.setItem("curatorId",data.id);
