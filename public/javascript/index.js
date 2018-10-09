@@ -17,6 +17,7 @@ $("#navbar-log-sign").on("click", function () {
   }
 });
 
+
 //Back button from expand to firstLayer modal
 $("#backto-scroll-modal").on("click", function () {
   $('#expanded-modal').modal('hide');
@@ -105,5 +106,5 @@ $("#new-group-submit").on("click", function (event) {
       $("#groupdescriptionWarningMessage").show();
     }
   }
-  
+
 });

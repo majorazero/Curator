@@ -118,11 +118,8 @@ module.exports = (app) => {
                         id: req.params.id
                     }
                 })
-            .then(() => {
-                res.status(200);
-            })
-            .catch((err) => {
-                res.status(404).json(err);
+            .then(function(data){
+              res.json(data);
             });
     });
 
