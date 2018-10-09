@@ -114,6 +114,7 @@
         <h5 class="modal-title" id="addRestTitle">Restaurant Search</h5>
       </div>
       <div id="addRestBody" class="modal-body">
+        <small id="addRestSearchWarning">We already have an entry of this!</small>
         <form>
           <div class="form-group">
             <label class="col-form-label">Search Term:</label>
@@ -141,11 +142,14 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label>Score:</label>
+            <div><label>Score:</label></div>
             <input id="addRestRatingScore" type="text">
+            <div>
+            <small id='addRestScoreWarning'>Have to input a score between 0-5!</small>
+            </div>
           </div>
           <div class="form-group">
-            <label>Comment:</label>
+            <div><label>Comment:</label></div>
             <textarea id="addRestRatingComment" type="text"></textarea>
           </div>
         </form>
