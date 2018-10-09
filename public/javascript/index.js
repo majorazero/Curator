@@ -71,6 +71,7 @@ $("#new-group-submit").on("click", function (event) {
     $("#group-input").val(""),
     $("#location-input").val(""),
     $("#clan-img-input").val(""),
+    $("#groupdescription-input").val(""),
 
     $.post("/api/clans/new", newGroup)
       .then(function (clanid) {
@@ -79,12 +80,12 @@ $("#new-group-submit").on("click", function (event) {
           isMember: true,
           userId: sessionStorage.getItem("curatorId"),
           clanId: clanid,
-          clanImage: clanImage
+          clanImage: clanid
         }
         console.log(addMember)
         $.post("/api/memberships", addMember)
           .then(function (data) {
-            console.log(data)
+            console.log(data);
             window.location.href = '/yourGroups/' + sessionStorage.getItem("curatorId");
           })
       });
@@ -104,4 +105,5 @@ $("#new-group-submit").on("click", function (event) {
       $("#groupdescriptionWarningMessage").show();
     }
   }
+  
 });
