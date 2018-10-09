@@ -56,16 +56,15 @@ module.exports = (app) => {
             res.status(404).json(err);
         });
     });
-
+    // 
     app.get("/api/ratings/checkExist/:clanId/:yelpId", (req,res) => {
       console.log(req.params.clanId,req.params.yelpId);
       db.Rating.findAll({
         where: {
           clanId: req.params.clanId
-
         },
         include: [
-          {model: db.Restaurant, where:{yelpId: req.params.yelpId}}
+          {model: db.Restaurant, where: {yelpId: req.params.yelpId}}
         ]
       }).then(function(data){
         res.json(data);
@@ -90,6 +89,7 @@ module.exports = (app) => {
         });
     });
 
+    // 
     app.post("/api/ratings/groupRest", (req, res) => {
       db.Rating.findAll({
         where: {
@@ -102,6 +102,36 @@ module.exports = (app) => {
       }).then(function(data){
         res.json(data);
       });
+    });
+
+    // Get groups average rating on restaurant
+    app.post("/api/ratings/groupRestAverage", (req, res) => {
+        db.Rating
+        .findAll({
+            where: {
+                clanId: req.body.clanId
+            },
+            include: [
+                {
+                    model: db.Restaurant,
+                    attributes: [
+                        "id",
+                        "name",
+                        "imageLink",
+                        "address",
+                        "price",
+                        "yelpId",
+                        [db.sequelize.fn("AVG", db.sequelize.col("rating")), "averageRating"]
+                    ]
+                }
+            ]
+        })
+        .then(() => {
+            res.status(200);
+        })
+        .catch((err) => {
+            res.status(404).json(err);
+        });
     });
 
     // Update rating
