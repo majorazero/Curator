@@ -16,10 +16,12 @@ body {
 }
 
 .card {
+    height: 630px;
     margin: 20px 0px 20px 0px;
     cursor: pointer;
     opacity: .85;
     align-self: baseline;
+    overflow: hidden;
 }
 
 .cardCard {
@@ -51,6 +53,8 @@ body {
 
 .card-title {
     color: whitesmoke;
+    height: 24px;
+
 }
 
 .card-text {
@@ -111,36 +115,42 @@ body {
 
 #logo:hover .navbar-brand:hover,
 .nav-link:hover,
-#logo:hover #fa-food-icon
+#fa-food-icon:hover
 {
     color: goldenrod;
+}
+
+#logo:hover {
+    cursor: pointer;
 }
 
 #logo {
     position: relative;
     color:goldenrod;
     margin-right: auto;
+    margin-bottom: 0px;
     z-index: 100;
+    -webkit-text-stroke: .7px black;
 }
 
 #fa-food-icon {
     position: absolute;
-    top: 13px;
+    top: 16px;
 }
 
 .navbar-brand {
-    -webkit-text-stroke: .5px black;
     margin-right: auto;
-    margin-left: 30px;
+    margin-left: 37px;
     padding: 0 0 0 0;
     color:goldenrod;
     font-variant: small-caps;
-    font-family: fantasy, helvetica, sans-serif;
-    font-size: 33px;
+    font-family: 'Playfair Display', serif;
+    font-size: 40px;
+    font-weight: 1000;  
 }
 
 .glow{
-    text-shadow: 0px 0px 5px goldenrod;
+    text-shadow: 0px 0px 3px goldenrod;
   }
 
 .nav-link {
