@@ -4,43 +4,50 @@ db.Clan.create({
   name: "LA Hotdog Club",
   location: "LA",
   blurb: "We enjoy eating hotdogs in LA. Sue us.",
-  isPublic: true
+  isPublic: true,
+  clanImage: "https://foremangrillrecipes.com/wp-content/uploads/2013/05/featured-Foreman-Grill-Hot-Dogs.jpg"
 });
 db.Clan.create({
   name: "SGV Beer Crawl",
   location: "San Gabriel",
   blurb: "Alcolholics Anonymous can shove it.",
-  isPublic: true
+  isPublic: true,
+  clanImage: "https://www.gannett-cdn.com/-mm-/89934f7b13e7717eb560f3babda84f20895abcd0/c=83-0-724-482/local/-/media/2018/07/17/DetroitFreeP/DetroitFreePress/636674313628993565-GettyImages-684133728.jpg?width=534&height=401&fit=crop"
 });
 db.Clan.create({
   name: "WINOS",
   location: "Beverly Hill",
   blurb: "Drink till we die.",
-  isPublic: true
+  isPublic: true,
+  clanImage: "https://valenzanowine.com/wp-content/uploads/2015/11/bigstock-wine-glasses.jpg"
 });
 db.Clan.create({
   name: "Spicy Food Cool Kids",
   location: "San Gabriel",
   blurb: "We like spicy food.",
-  isPublic: true
+  isPublic: true,
+  clanImage: "https://www.thespruceeats.com/thmb/QMSXFkdj29NsqgXcM8Bje4bxDtk=/450x0/filters:no_upscale():max_bytes(150000):strip_icc()/Peppers-Sweet-Mix-579bb8773df78c3276657310.jpg"
 });
 db.Clan.create({
   name: "Boba Bros",
   location: "LA",
   blurb: "We like boba, in more ways than one.",
-  isPublic: true
+  isPublic: true,
+  clanImage: "https://www.thelittleepicurean.com/wp-content/uploads/2018/08/boba-milk-tea-drink-.jpg"
 });
 db.Clan.create({
   name: "dine'n douche",
   location: "Alhambra",
   blurb: "I'm not sure why we named ourselves this.",
-  isPublic: true
+  isPublic: true,
+  clanImage: "https://cdn.shopify.com/s/files/1/1592/5035/products/db01sm.jpg?v=1520723157"
 });
 db.Clan.create({
   name: "KKK Kitchen Club",
   location: "Kingston",
   blurb: "For racist assholes only.",
-  isPublic: false
+  isPublic: false,
+  clanImage: "http://images.mid-day.com/images/2015/jan/08men-idiots.jpg"
 });
 db.User.create({
   username: "dummy",
@@ -56,7 +63,7 @@ db.Membership.create({
   isMember: true
 });
 db.Membership.create({
-  clanId: 6,
+  clanId: 4,
   userId: 1
 });
 db.Membership.create({
