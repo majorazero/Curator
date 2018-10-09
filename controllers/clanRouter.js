@@ -77,10 +77,13 @@ module.exports = (app) => {
         .create({
             name: req.body.name,
             location: req.body.location,
-            isPublic: req.body.isPublic
+            isPublic: req.body.isPublic,
+            clanImage: req.body.clanImage,
+            blurb: req.body.groupDescription
         })
-        .then(() => {
-            res.status(200).json("New clan made");
+        .then((data) => {
+            console.log("New Group Added")
+            res.status(200).json(data.id);
         })
         .catch((err) => {
             res.status(404).json(err);
