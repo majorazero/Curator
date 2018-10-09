@@ -15,7 +15,7 @@ function secondLayerList(target){
   }).then(function(data){
     $("#expanded-scrollMenu").empty();
     if(data.length === 0){
-      $("#expanded-scrollMenu").append("<img class='img-fluid' src='images/noEntries.gif' />");
+      $("#expanded-scrollMenu").append("<img class='img-fluid' src='/images/noEntries.gif' />");
       $("#expanded-scrollMenu").append("<h2>Oops, no entries!</h2>");
     }
     else{

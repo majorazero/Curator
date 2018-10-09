@@ -66,7 +66,7 @@ $("#addRestRatingButt").on("click",function(){
       type: "GET"
     }).then(function(data){
       console.log(data);
-      if(data === "No Restaurant Found"){
+      if(data === "No Restaurants Found"){
         //you add the restaurant to the restaurant database
         $.ajax({
           url:"/api/restaurants/new",
@@ -75,19 +75,20 @@ $("#addRestRatingButt").on("click",function(){
             name: target.name,
             imageLink: target.image_url,
             yelpId: target.id,
-            address: target.location.display_address[0]+", "+target.location.display_address[1]
+            address: target.location.display_address[0]+", "+target.location.display_address[1],
+            price: target.price
           }
         }).then(function(data){
           //use the id to make a new rating
           let restId = data.id;
           console.log(data);
-          //makeRating(restId);
+          makeRating(restId);
         });
       }
       else {
         //get the restaurant id and make a new rating
         let restId = data[0].id;
-        //makeRating(restId);
+        makeRating(restId);
       }
     });
   }

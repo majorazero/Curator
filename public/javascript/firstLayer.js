@@ -17,7 +17,7 @@ $(".firstLayerClickable").on("click",function(){
     $("#firstLayerScroll").empty();
     if(data.length === 0){
       console.log("Oops no entries!");
-      $("#firstLayerScroll").append("<img class='img-fluid' src='images/noEntries.gif' />");
+      $("#firstLayerScroll").append("<img class='img-fluid' src='/images/noEntries.gif' />");
       $("#firstLayerScroll").append("<h2>Oops, no entries!</h2>");
     }
     else{
