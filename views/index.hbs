@@ -87,7 +87,7 @@
           <div class="col-sm-1">
             <i class="fa fa-lg fa-comments"></i>
             <br>
-            <i class="fa fa-lg fa-bars"></i>
+            <i id="usersListButton" class="fa fa-lg fa-users"></i>
             <br>
             <i class="fa fa-lg fa-share-alt"></i>
             <br>
@@ -240,8 +240,27 @@
   </div>
 </div>
 
+<!-- new users modal -->
+<div id='usersList' class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Users List</h5>
+      </div>
+      <div class="modal-body">
+        <div>Admin:</div>
+        <div id="usersAdmin"></div>
+        <div>Member:</div>
+        <div id="usersMember"></div>
+      </div>
+      <div class='modal-footer'>
+        <button id="userListBack" class="btn btn-primary">Back</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-
+<script src="/javascript/usersList.js"></script>
 <script src="/javascript/index.js"></script>
 <script src="/javascript/addRest.js"></script>
 <script src="/javascript/firstLayer.js"></script>

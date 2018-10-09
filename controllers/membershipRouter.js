@@ -31,7 +31,7 @@ module.exports = function (app) {
     });
 
     // GET route for getting all of the memberships by UserId
-    // And 
+    // And
     app.post("/api/memberships/user", function (req, res) {
         db.Membership
         .findAll({
@@ -52,7 +52,7 @@ module.exports = function (app) {
     });
 
 
-    // GET route for getting all of the memberships by clanId // if clan set idpublic to false
+    // GET route for getting all of the memberships by clanId
     app.get("/api/memberships/clans/:id", function (req, res) {
         db.Membership.findAll({
             where: {
@@ -67,6 +67,27 @@ module.exports = function (app) {
             }
         });
     });
+
+    //finds all members of clan
+    app.get("/api/memberships/activeMemberClans/:id", function (req, res) {
+        db.Membership.findAll({
+            where: {
+                clanId: req.params.id,
+                isMember: true
+            },
+            include:[{
+              model: db.User
+            }]
+        }).then(function (response) {
+            if (response.length === 0) {
+                res.json("No Membership Found");
+            }
+            else {
+                res.json(response);
+            }
+        });
+    });
+
     // GET route for getting all of the memberships by UserId
     app.get("/api/memberships/users/:id", function (req, res) {
         db.Membership.findAll({
