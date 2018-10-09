@@ -65,7 +65,7 @@ $("#new-group-submit").on("click", function (event) {
     groupDescription: $("#groupdescription-input").val().trim()
   };
   console.log(newGroup.groupDescription)
- 
+
   if (newGroup.name && newGroup.location && newGroup.clanImage && newGroup.groupDescription) {
     $("#group-input").val(""),
     $("#location-input").val(""),
@@ -77,7 +77,8 @@ $("#new-group-submit").on("click", function (event) {
           isAdmin: true,
           isMember: true,
           userId: sessionStorage.getItem("curatorId"),
-          clanId: clanid
+          clanId: clanid,
+          clanImage: clanImage
         }
         console.log(addMember)
         $.post("/api/memberships", addMember)

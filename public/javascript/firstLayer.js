@@ -1,9 +1,23 @@
+let currTarget;
 $(".firstLayerClickable").on("click",function(){
   let clanName = $(this).attr("data-name");
   let clanId = $(this).attr("data-id");
   sessionStorage.setItem("currentLoc",$(this).attr("data-location"));
   sessionStorage.setItem("currentClan",clanId);
   sessionStorage.setItem("currentClanName",$(this).attr("data-name"));
+  currTarget = $(this);
+  //sessionStorage.setItem("currTarget",$(this));
+  //sessionStorage.setItem("currentIsPublic",$(this).attr("data-public"));
+  //not sure if this works the way i think it does
+  console.log($(this).attr("data-public"));
+  if($(this).attr("data-public") === true){
+    console.log(1);
+    $("#visiButton").addClass("fa-eye");
+  }
+  else{
+    console.log(2);
+    $("#visiButton").addClass("fa-eye-slash");
+  }
   $.ajax({
     url: "/api/ratings/groupRest",
     type: "POST",

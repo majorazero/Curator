@@ -1,3 +1,5 @@
+
+
 $("#visiButton").on("click",function(){
   if($(this).hasClass("fa-eye")){
     //we'll run an clan update
@@ -9,6 +11,7 @@ $("#visiButton").on("click",function(){
 });
 
 function updatePublic(pub,target){
+  console.log(pub);
   $.ajax({
     type: "PUT",
     url: "/api/clans/"+sessionStorage.getItem("currentClan"),
@@ -21,10 +24,14 @@ function updatePublic(pub,target){
     if(pub === false){
       target.removeClass("fa-eye");
       target.addClass("fa-eye-slash");
+      currTarget.attr("data-public",false);
+      console.log(currTarget.attr("data-public"));
     }
     else{
       target.removeClass("fa-eye-slash");
       target.addClass("fa-eye");
+      currTarget.attr("data-public",true);
+      console.log(currTarget.attr("data-public"));
     }
   });
 }

@@ -7,14 +7,19 @@ $("#usersListButton").on("click",function(){
     $("#usersAdmin").empty();
     $("#usersMember").empty();
     console.log(data);
-    for(let i = 0; i < data.length; i++){
-      let wrapper = $("<div>");
-      wrapper.text(data[i].User.username);
-      if(data[i].isAdmin === true){
-        $("#usersAdmin").append(wrapper);
-      }
-      else{
-        $("#usersMember").append(wrapper);
+    if(data.length === 0){
+
+    }
+    else{
+      for(let i = 0; i < data.length; i++){
+        let wrapper = $("<div>");
+        wrapper.text(data[i].User.username);
+        if(data[i].isAdmin === true){
+          $("#usersAdmin").append(wrapper);
+        }
+        else{
+          $("#usersMember").append(wrapper);
+        }
       }
     }
     $("#expanded-modal").modal("hide");

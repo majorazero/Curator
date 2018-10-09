@@ -2,7 +2,7 @@
 <div class="row main-row-style">
   {{#each clans}}
   <div class="card cardCard" style="width: 18rem;">
-    <div data-location='{{location}}' data-id={{id}} data-name='{{name}}' class="firstLayerClickable">
+    <div data-public={{isPublic}} data-location='{{location}}' data-id={{id}} data-name='{{name}}' class="firstLayerClickable">
       <!-- group image -->
       <figure class="figure">
         <img class="card-img-top figure-img" src='{{clanImage}}'
@@ -97,7 +97,7 @@
             <br>
             <i id='addRestButton' class="fa fa-lg fa-plus"></i>
             <br>
-            <i id="visiButton" class="fa fa-lg fa-eye"></i>
+            <i id="visiButton" class="fa fa-lg"></i>
           </div>
         </div>
       </div>
@@ -193,12 +193,12 @@
 
 <!-- New Group modal -->
 
-<div class="modal fade" id="new-group-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="new-group-modal" tabindex="-1" role="dialog"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Create a new group</h5>
+        <h5 class="modal-title" id="newGroup">Create a new group</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -208,7 +208,7 @@
           <div class="form-group">
             <label for="recipient-name" class="col-form-label">Group Name:</label>
             <input type="text" class="form-control" id="group-input">
-            <small id="groupnameWarningMessage">Must conatin a group name</small>
+            <small id="groupnameWarningMessage">Must contain a group name</small>
           </div>
             <div class="form-group">
             <label for="message-text" class="col-form-label">Group Description:</label>
@@ -262,9 +262,10 @@
   </div>
 </div>
 
-<script src="/javascript/visiButton.js"></script>
+
 <script src="/javascript/usersList.js"></script>
 <script src="/javascript/index.js"></script>
 <script src="/javascript/addRest.js"></script>
 <script src="/javascript/firstLayer.js"></script>
 <script src="/javascript/secondLayer.js"></script>
+<script src="/javascript/visiButton.js"></script>
