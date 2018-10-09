@@ -9,8 +9,9 @@ $(".firstLayerClickable").on("click",function(){
   //sessionStorage.setItem("currTarget",$(this));
   //sessionStorage.setItem("currentIsPublic",$(this).attr("data-public"));
   //not sure if this works the way i think it does
-  console.log($(this).attr("data-public"));
-  if($(this).attr("data-public") === true){
+  console.log(typeof $(this).attr("data-public"));
+  //annoying handlebar stuff
+  if($(this).attr("data-public") === true || $(this).attr("data-public") === "true"){
     console.log(1);
     $("#visiButton").addClass("fa-eye");
   }

@@ -98,22 +98,9 @@ module.exports = (app) => {
                 id: req.params.id
             }
         })
-        .then(() => {
-            res.status(200);
-        })
-        .catch((err) => {
-            res.status(404).json(err);
+        .then((data) => {
+            res.json(data);
         });
-    });
-    //fuck i broke it
-    app.put("/api/clans/updatePublic",(req,res) => {
-      db.Clan.update({
-        isPublic: req.body.isPublic
-      }, {
-        where: {
-
-        }
-      })
     });
 
     // Delete clan
