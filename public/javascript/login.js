@@ -42,18 +42,20 @@ $("#login").on("submit",function(event){
     token: token}
   }).then(function(data){
     if(data === "womp"){
-      console.log("Bad password");
+      $("#inputPassword").val("");
+      $("#loginPassWarning").show();
     }
     else if(data === "womp2"){
-      console.log("User not found!");
+      $("#inputUsername").val("");
+      $("#loginUserWarning").show();
     }
     else {
       sessionStorage.setItem("curatorId",data.id);
       sessionStorage.setItem("curatorName",data.username);
       localStorage.setItem("token",data.token);
       $(".login-only").show();
+      $("#log-sign-modal").modal("toggle");
     }
-    $("#log-sign-modal").modal("toggle");
   });
 });
 

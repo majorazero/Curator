@@ -11,6 +11,8 @@ $("#navbar-log-sign").on("click", function () {
     $("#profileModal").modal("show");
   }
   else {
+    $("#loginPassWarning").hide();
+    $("#loginUserWarning").hide();
     $('#log-sign-modal').modal('show');
   }
 });
