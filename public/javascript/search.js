@@ -1,3 +1,6 @@
 $("#locSearchButt").on("click",function(){
-  console.log("#locSearchTerm");
+  console.log($("#locSearchTerm").val());
+  // $.ajax({
+  //   url: "/api/clans/"+$("#locSearchTerm")
+  // })
 });

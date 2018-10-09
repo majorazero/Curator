@@ -57,25 +57,6 @@ let db = require("./models");
 //   username: "dummy2",
 //   password: "dummy"
 // });
-// db.Membership.create({
-//   clanId: 2,
-//   userId: 1,
-//   isMember: true
-// });
-// db.Membership.create({
-//   clanId: 4,
-//   userId: 1
-// });
-// db.Membership.create({
-//   clanId: 3,
-//   userId: 1,
-//   isMember: true,
-//   isAdmin: true
-// });
-// db.Membership.create({
-//   clanId: 7,
-//   userId: 1
-// });
 // db.Restaurant.create({
 //   name: "Hot Dog Lady",
 //   imageLink: "https://s3-media4.fl.yelpcdn.com/bphoto/QbZ1LQkGm6xP9VNCWwxU2g/o.jpg",
@@ -154,31 +135,50 @@ let db = require("./models");
 //   clanId: 1,
 //   restaurantId: 1
 // });
-db.User.create({
-  username: "dummy3",
-  password: "dummy"
-});
-db.User.create({
-  username: "dummy4",
-  password: "dummy"
-});
-db.User.create({
-  username: "dummy5",
-  password: "dummy"
-});
+// db.User.create({
+//   username: "dummy3",
+//   password: "dummy"
+// });
+// db.User.create({
+//   username: "dummy4",
+//   password: "dummy"
+// });
+// db.User.create({
+//   username: "dummy5",
+//   password: "dummy"
+// });
+// db.Membership.create({
+//   clanId: 2,
+//   userId: 2,
+//   isMember: true,
+//   isAdmin: true
+// });
+// db.Membership.create({
+//   clanId: 2,
+//   userId: 3,
+//   isMember: true
+// });
+// db.Membership.create({
+//   clanId: 2,
+//   userId: 4,
+//   isMember: true
+// });
 db.Membership.create({
   clanId: 2,
-  userId: 2,
+  userId: 1,
+  isMember: true
+});
+db.Membership.create({
+  clanId: 4,
+  userId: 1
+});
+db.Membership.create({
+  clanId: 3,
+  userId: 1,
   isMember: true,
   isAdmin: true
 });
 db.Membership.create({
-  clanId: 2,
-  userId: 3,
-  isMember: true
-});
-db.Membership.create({
-  clanId: 2,
-  userId: 4,
-  isMember: true
+  clanId: 7,
+  userId: 1
 });

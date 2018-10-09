@@ -13,7 +13,10 @@ const crypto = require("crypto");
 
 module.exports = (app) => {
 
-
+    //find clans by location and is public
+    // app.get("/api/clans/:location", function(req,res){
+    //
+    // });
 
     // Find all clans by isPublic true
     app.get("/api/clans/public", (req, res) => {
