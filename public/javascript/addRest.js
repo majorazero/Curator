@@ -71,7 +71,7 @@ $("#addRestRatingButt").on("click",function(){
     //does restaurant exist in our database?
     let target = currentDataSet[parseInt($("#addRestRating").attr("data-indexid"))];
     $.ajax({
-      url: "api/restaurants/"+target.id,
+      url: "/api/restaurants/"+target.id,
       type: "GET"
     }).then(function(data){
       if(data === "No Restaurants Found"){
