@@ -1,4 +1,5 @@
 var db = require("../models");
+const crypto = require("crypto");
 
 module.exports = function (app) {
 
@@ -49,6 +50,49 @@ module.exports = function (app) {
         .catch((err) => {
             res.status(404).json(err);
         });
+    });
+
+
+    app.post("/api/memberships/inviteCode",function(req,res) {
+      let mykey = crypto.createDecipher("aes-128-cbc","inviteCode");
+      let token = mykey.update(req.body.inviteCode,'hex','utf8');
+      token += mykey.final('utf8');
+      });
+      db.Membership.findAll({
+        where: {
+          clanId: token,
+          userId: req.body.userId
+        }
+      }).then(function(data){
+        console.log(data);
+        if(data.length === 0){
+          //membership does not exist lets make one
+          db.Membership.create({
+            clanId: token,
+            userId: req.body.userId,
+            isMember: true
+          }).then(function(){
+            res.json("Success!");
+          });
+        }
+        else if (data[0].dataValues.isMember === false){
+          //if they're following
+          db.Membership.update({
+            isMember: true
+          },{
+            where: {
+              userId: req.body.userId
+            }
+          }).then(function(){
+            res.json("Success!");
+          })
+        }
+        else {
+          //memberships exist
+          //member exists, return a message that they're already in this group
+          res.json("Already in this group.");
+        }
+      });
     });
 
 

@@ -89,7 +89,7 @@
             <br>
             <i id="usersListButton" class="fa fa-lg fa-users"></i>
             <br>
-            <i class="fa fa-lg fa-share-alt"></i>
+            <i id="shareButton" class="fa fa-lg fa-share-alt"></i>
             <br>
             <i class="fa fa-lg fa-paper-plane"></i>
             <br>
@@ -262,7 +262,26 @@
   </div>
 </div>
 
+<!-- invite code generation per clan -->
+<div id='inviteCodeGenerateModal' class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Users List</h5>
+      </div>
+      <div class="modal-body">
+        <div>Invite Code:</div>
+        <div id="inviteCodeMess"></div>
+        <small>Use the invite code to auto-join!</small>
+      </div>
+      <div class='modal-footer'>
+        <button id="inviteBack" class="btn btn-primary">Back</button>
+      </div>
+    </div>
+  </div>
+</div>
 
+<script src="/javascript/share.js"></script>
 <script src="/javascript/usersList.js"></script>
 <script src="/javascript/index.js"></script>
 <script src="/javascript/addRest.js"></script>

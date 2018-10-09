@@ -6,6 +6,7 @@
 // --------------------------------------------
 
 const db = require("../models");
+const crypto = require("crypto");
 
 // Export Clan Routes
 // --------------------------------------------
@@ -86,6 +87,16 @@ module.exports = (app) => {
             res.status(404).json(err);
         });
     });
+
+    //encrypt clan id
+    app.post("/api/encrypt", function(req,res) {
+      //crpyto
+      let mykey = crypto.createCipher("aes-128-cbc","inviteCode");
+      let token = mykey.update(req.body.clanId,'utf8','hex');
+      token += mykey.final('hex');
+      res.json(token);
+    });
+
     // Update clan
     app.put("/api/clans/:id", (req, res) => {
         db.Clan

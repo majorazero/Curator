@@ -38,8 +38,9 @@
   <div class='container-fluid'>
     {{{body}}}
   </div>
+
   <!-- invite code modal -->
-  <div class="modal fade" id="inviteCodeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="inviteCodeModal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -55,6 +56,9 @@
             <input type="text" class="form-control" id="invite-code">
           </div>
         </form>
+      </div>
+      <div class="modal-footer">
+        <button id="invSub2">Submit</button>
       </div>
     </div>
   </div>
@@ -121,7 +125,16 @@
   </div>
 </div>
 
-
+<!-- invite status -->
+<div id='inviteStatus' class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div id="inviteStatusMess"></div>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!--Log in/ sign in Modal -->
 <div class="modal fade" id="log-sign-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -146,6 +159,7 @@
 </div>
 <script src = "/javascript/login.js"></script>
 <script src="/javascript/navbarFunc.js"></script>
+<script src="/javascript/inviteCode.js"></script>
 <script
   src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
   integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
