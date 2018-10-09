@@ -77,13 +77,10 @@ module.exports = (app) => {
         .create({
             name: req.body.name,
             location: req.body.location,
-            isPublic: req.body.isPublic,
-            clanImage: req.body.clanImage,
-            blurb: req.body.groupDescription
+            isPublic: req.body.isPublic
         })
-        .then((data) => {
-            console.log("New Group Added")
-            res.status(200).json(data.id);
+        .then(() => {
+            res.status(200);
         })
         .catch((err) => {
             res.status(404).json(err);
@@ -101,13 +98,11 @@ module.exports = (app) => {
                 id: req.params.id
             }
         })
-        .then(() => {
-            res.status(200);
+        .then(function(data){
+          res.json(data);
         })
-        .catch((err) => {
-            res.status(404).json(err);
-        });
     });
+
     // Delete clan
     app.delete("/api/clans/:id", (req, res) => {
         db.Clan
