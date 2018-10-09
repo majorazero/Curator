@@ -57,7 +57,6 @@ module.exports = function (app) {
       let mykey = crypto.createDecipher("aes-128-cbc","inviteCode");
       let token = mykey.update(req.body.inviteCode,'hex','utf8');
       token += mykey.final('utf8');
-      });
       db.Membership.findAll({
         where: {
           clanId: token,
@@ -85,7 +84,7 @@ module.exports = function (app) {
             }
           }).then(function(){
             res.json("Success!");
-          })
+          });
         }
         else {
           //memberships exist
