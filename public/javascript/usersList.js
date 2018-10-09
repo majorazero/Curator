@@ -7,8 +7,10 @@ $("#usersListButton").on("click",function(){
     $("#usersAdmin").empty();
     $("#usersMember").empty();
     console.log(data);
-    if(data.length === 0){
-
+    if(data === "No Membership Found"){
+      let wrapper = $("<div>");
+      wrapper.text(data);
+      $("#usersAdmin").append(wrapper);
     }
     else{
       for(let i = 0; i < data.length; i++){
