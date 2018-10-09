@@ -53,7 +53,6 @@ $("#create-new-group").on("click", function () {
 
 });
 
-
 //New group submit button + functionality
 $("#new-group-submit").on("click", function (event) {
   event.preventDefault();
@@ -89,7 +88,6 @@ $("#new-group-submit").on("click", function (event) {
             window.location.href = '/yourGroups/' + sessionStorage.getItem("curatorId");
           })
       });
-
   }
   else {
 

@@ -1,7 +1,7 @@
 //lets check if session storage existsm this meaning null means it doesnt
-if(sessionStorage.getItem("curatorId") === null){
+if (sessionStorage.getItem("curatorId") === null) {
   //if session storage doesn't exist, let's check for a token.
-  if(localStorage.getItem("token")!== null){
+  if (localStorage.getItem("token") !== null) {
     //well call a post route for tokens here
     $.ajax({
       type: "POST",
@@ -9,25 +9,25 @@ if(sessionStorage.getItem("curatorId") === null){
       data: {
         token: localStorage.getItem("token")
       }
-    }).then(function(data){
-      if(data === "No matching token."){
+    }).then(function (data) {
+      if (data === "No matching token.") {
         //if we want to do something in case this happens you can put it here, but as of now, nothing happens is adequate
       }
-      else{
+      else {
         //if token checks out, we'll store the data into session storage.
-        sessionStorage.setItem("curatorId",data.id);
-        sessionStorage.setItem("curatorName",data.username);
+        sessionStorage.setItem("curatorId", data.id);
+        sessionStorage.setItem("curatorName", data.username);
         $(".login-only").show();
       }
     });
   }
   //if it equals null nothing happens, because you need to login.
 }
-else{
+else {
   $(".login-only").show();
 }
 //capture login info.
-$("#login").on("submit",function(event){
+$("#login").on("submit", function (event) {
   event.preventDefault();
   let username = $("#inputUsername").val();
   let password = $("#inputPassword").val();
@@ -52,9 +52,9 @@ $("#login").on("submit",function(event){
       $("#log-sign-modal").effect("shake");
     }
     else {
-      sessionStorage.setItem("curatorId",data.id);
-      sessionStorage.setItem("curatorName",data.username);
-      localStorage.setItem("token",data.token);
+      sessionStorage.setItem("curatorId", data.id);
+      sessionStorage.setItem("curatorName", data.username);
+      localStorage.setItem("token", data.token);
       $(".login-only").show();
       $("#log-sign-modal").modal("toggle");
     }
@@ -62,7 +62,7 @@ $("#login").on("submit",function(event){
 });
 
 //logout functionality
-$("#logout").on("click",function(){
+$("#logout").on("click", function () {
   //clears out sessionStorage and localStorage
   sessionStorage.clear();
   localStorage.clear();
@@ -71,13 +71,13 @@ $("#logout").on("click",function(){
 });
 
 //register transition
-$("#toRegisterButton").on("click",function(){
+$("#toRegisterButton").on("click", function () {
   $("#log-sign-modal").modal("toggle");
   $("#registerModal").modal("toggle");
   $("#usernameWarningMessage").hide();
 });
 
-$("#registerButton").on("click",function(){
+$("#registerButton").on("click", function () {
   let username = $("#regUsername").val();
   let password = $("#regPass").val();
   $.ajax({
@@ -87,8 +87,8 @@ $("#registerButton").on("click",function(){
       username: username,
       password: password
     }
-  }).then(function(response){
-    if(response === "Username already used."){
+  }).then(function (response) {
+    if (response === "Username already used.") {
       $("#regUsername").val("");
       $("#usernameWarningMessage").show();
     }
