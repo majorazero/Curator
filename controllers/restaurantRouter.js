@@ -29,28 +29,14 @@ module.exports = function (app) {
             }
         });
     });
-    // GET route for retrieving a single restaurant
-    app.get("/api/restaurants/:id", function (req, res) {
-        db.Restaurant.findOne({
-            where: {
-                id: req.params.id
-            }
-        }).then(function (response) {
-            if (response === []) {
-                res.json("No Restaurants Found");
-            }
-            else {
-                res.json(response);
-            }
-        });
-    });
     // POST route for saving a new restaurant
     app.post("/api/restaurants/new", function (req, res) {
         db.Restaurant.create({
             name: req.body.name,
-            imageLink: re.body.imageLink,
-            address: re.body.address,
-            yelpid: req.body.yelpid
+            imageLink: req.body.imageLink,
+            address: req.body.address,
+            yelpId: req.body.yelpId,
+            price: req.body.price
         }).then(function (response) {
             res.json(response);
         });

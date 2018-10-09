@@ -79,7 +79,7 @@ module.exports = (app) => {
             rating: req.body.rating,
             comment: req.body.comment,
             userId: req.body.userId,
-            clansId: req.body.clansId,
+            clanId: req.body.clanId,
             restaurantId: req.body.restaurantId
         })
         .then((data) => {

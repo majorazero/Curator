@@ -11,7 +11,7 @@ $("#addRestSearchButt").on("click",function(){
     type: "GET",
     url: "/api/yelp/LA/"+$("#restSearch").val()
   }).then(function(data){
-    console.log(data);
+    console.log(sessionStorage);
     currentDataSet = data.businesses;
     //loop through the 20
     $("#restResult").empty();
@@ -59,10 +59,58 @@ $("#addRestRatingButt").on("click",function(){
   console.log($("#addRestRatingScore").val(),$("#addRestRatingComment").val());
   if($("#addRestRatingScore").val() <=5 || $("#addRestRatingScore").val() >=0){
     //score input is valid
-    console.log(currentDataSet);
-    console.log($(this).attr("data-indexid"));
+    //does restaurant exist in our database?
+    let target = currentDataSet[parseInt($("#addRestRating").attr("data-indexid"))];
+    $.ajax({
+      url: "api/restaurants/"+target.id,
+      type: "GET"
+    }).then(function(data){
+      console.log(data);
+      if(data === "No Restaurant Found"){
+        //you add the restaurant to the restaurant database
+        $.ajax({
+          url:"/api/restaurants/new",
+          type: "POST",
+          data: {
+            name: target.name,
+            imageLink: target.image_url,
+            yelpId: target.id,
+            address: target.location.display_address[0]+", "+target.location.display_address[1]
+          }
+        }).then(function(data){
+          //use the id to make a new rating
+          let restId = data.id;
+          console.log(data);
+          //makeRating(restId);
+        });
+      }
+      else {
+        //get the restaurant id and make a new rating
+        let restId = data[0].id;
+        //makeRating(restId);
+      }
+    });
   }
   else{
     console.log("Have to input a number between 0-5.");
   }
 });
+
+function makeRating(restId){
+  $.ajax({
+    url:"/api/ratings",
+    type: "POST",
+    data: {
+      userId: sessionStorage.getItem("curatorId"),
+      restaurantId: restId,
+      clanId: sessionStorage.getItem("currentClan"),
+      rating: $("#addRestRatingScore").val(),
+      comment: $("#addRestRatingComment").val()
+    }
+  }).then(function(){
+    console.log(3);
+    //after you make the rating you should reload the previous modal and close this modal.
+    $("#addRestRating").modal("hide");
+    secondLayerList($("#expand-btn"));
+  })
+}
