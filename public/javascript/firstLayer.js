@@ -94,8 +94,6 @@ function followCheck(){
       userId: sessionStorage.getItem("curatorId")
     }
   }).then(function(data2){
-    sessionStorage.setItem("currMemStatus",data2[0].isMember);
-    sessionStorage.setItem("currAdminStatus",data2[0].isAdmin);
     if(data2.length === 0){
       //not an anything with this group
       $("#followUnfollow").text("Follow");
@@ -117,6 +115,9 @@ function followCheck(){
       });
     }
     else{
+      console.log(data2);
+      sessionStorage.setItem("currMemStatus",data2[0].isMember);
+      sessionStorage.setItem("currAdminStatus",data2[0].isAdmin);
       //is with this group
       $("#followUnfollow").text("Unfollow");
       //destroy

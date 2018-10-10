@@ -20,53 +20,60 @@ function secondLayerList(target){
       clanId: sessionStorage.getItem("currentClan")
     }
   }).then(function(data2){
-    $.ajax({
-      url: "/api/ratings/groupRest",
-      type: "POST",
-      data: {
-        clanId: target.parent().attr("data-id")
-      }
-    }).then(function(data){
-      $("#expanded-scrollMenu").empty();
-      if(data.length === 0){
-        $("#expanded-scrollMenu").append("<img class='img-fluid' src='/images/noEntries.gif' />");
-        $("#expanded-scrollMenu").append("<h2>Oops, no entries!</h2>");
-      }
-      else{
-        //constructs scrollmenu for expanded
-        let currRestId;
-        let scoreSum = 0; //sum of ratings
-        let ratingAmount = 0; //sum divided by this
-        for(let i = 0; i < data.length; i++){
+      $.ajax({
+        url: "/api/ratings/groupRest",
+        type: "POST",
+        data: {
+          clanId: target.parent().attr("data-id")
+        }
+      }).then(function(data){
+        $("#expanded-scrollMenu").empty();
+        if(data.length === 0){
+          $("#expanded-scrollMenu").append("<img class='img-fluid' src='/images/noEntries.gif' />");
+          $("#expanded-scrollMenu").append("<h2>Oops, no entries!</h2>");
+        }
+        else{
+          //constructs scrollmenu for expanded
+          let currRestId;
+          let scoreSum = 0; //sum of ratings
+          let ratingAmount = 0; //sum divided by this
+          for(let i = 0; i < data.length; i++){
 
-          if(currRestId !== data[i].restaurantId){
-            if(currRestId !== undefined){
-              secondScroll(data[i-1],scoreSum,ratingAmount);
+            if(currRestId !== data[i].restaurantId){
+              if(currRestId !== undefined){
+                secondScroll(data[i-1],scoreSum,ratingAmount);
+              }
+              currRestId = data[i].restaurantId;
+              scoreSum = data[i].rating;
+              ratingAmount = 1;
+              if(i === data.length-1){
+                secondScroll(data[i],scoreSum,ratingAmount);
+              }
             }
-            currRestId = data[i].restaurantId;
-            scoreSum = data[i].rating;
-            ratingAmount = 1;
-            if(i === data.length-1){
-              secondScroll(data[i],scoreSum,ratingAmount);
+            else {
+              //lets just sum up the rating here
+              scoreSum += data[i].rating;
+              ratingAmount++;
             }
-          }
-          else {
-            //lets just sum up the rating here
-            scoreSum += data[i].rating;
-            ratingAmount++;
           }
         }
-      }
-      if(data2[0].isMember !== true){
-        //enable member only buttons
-        $(".memberOnly").hide();
-      }
-      if(data2[0].isAdmin !== true){
-        //enable admin only buttons
-        $(".adminOnly").hide();
-      }
-      $('#expanded-modal').modal('show');
-    });
+        if(data2.length !== 0){
+          if(data2[0].isMember !== true){
+            //enable member only buttons
+            $(".memberOnly").hide();
+          }
+          if(data2[0].isAdmin !== true){
+            //enable admin only buttons
+            $(".adminOnly").hide();
+          }
+        }
+        else {
+          $(".memberOnly").hide();
+          $(".adminOnly").hide();
+        }
+        $('#expanded-modal').modal('show');
+      });
+
   });
 }
 
