@@ -191,9 +191,9 @@
 <div class="modal fade" id="new-group-modal" tabindex="-1" role="dialog"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div id="Modal-Content-MoreInfo" class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="newGroup">Create a new group</h5>
+        <h5 class="modal-title" id="newGroupHeader">Create a new group</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -201,31 +201,31 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Group Name:</label>
+            <label for="recipient-name" class="col-form-label newGroupText">Group Name:</label>
             <input type="text" class="form-control" id="group-input">
-            <small id="groupnameWarningMessage">Must contain a group name</small>
+            <small id="groupnameWarningMessage" class="newGroupText">Must contain a group name</small>
           </div>
             <div class="form-group">
-            <label for="message-text" class="col-form-label">Group Description:</label>
+            <label for="message-text" class="col-form-label newGroupText">Group Description:</label>
             <textarea class="form-control" id="groupdescription-input"></textarea>
-            <small id="groupdescriptionWarningMessage">Must contain a group description</small>
+            <small id="groupdescriptionWarningMessage" class="newGroupText">Must contain a group description</small>
           </div>
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Location:</label>
+            <label for="message-text" class="col-form-label newGroupText">Location:</label>
             <textarea class="form-control" id="location-input"></textarea>
-            <small id="locationWarningMessage">Must contain a location</small>
+            <small id="locationWarningMessage" class="newGroupText">Must contain a location</small>
           </div>
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Public/Private:</label>
+            <label for="message-text" class="col-form-label newGroupText">Public/Private:</label>
             <select id="pub-priv-input">
               <option value="true">Public</option>
               <option value="false">Private</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Group Image Url:</label>
+            <label for="message-text" class="col-form-label newGroupText">Group Image Url:</label>
             <textarea class="form-control" id="clan-img-input"></textarea>
-            <small id="clanImageWarningMessage">Most contain an image URL</small>
+            <small id="clanImageWarningMessage" class="newGroupText">Most contain an image URL</small>
           </div>
         </form>
       </div>
