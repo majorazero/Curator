@@ -18,7 +18,8 @@ module.exports = function (app) {
   app.get("/yourFollows/:id", function (req, res) {
     db.Membership.findAll({
       where: {
-        userId: req.params.id
+        userId: req.params.id,
+        isMember: false
       },
       include: [
         { model: db.Clan }

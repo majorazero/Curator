@@ -238,7 +238,7 @@
 </div>
 
 <!-- users list modal -->
-<div id='usersList' class="modal" tabindex="-1" role="dialog">
+<div id='usersList' class="modal fade" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-dialog-centered2" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -272,6 +272,34 @@
       <div class='modal-footer'>
         <button id="inviteBack" class="btn btn-primary">Back</button>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- rate restaurants modal -->
+<div id='rateEntriesModal' class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered2" role="document">
+    <div class="modal-content">
+      <div id="rateEntriesModalHeader" class="modal-header">
+
+      </div>
+      <div class="modal-body">
+        <div id="rateEntries" class="scrollmenu2"></div>
+      </div>
+
+        <div class="form-group">
+          <label>Rating:</label>
+          <input type="number" min="0" max="5" class="form-control" id="rateEntriesModalRate" placeholder="Enter Rating">
+          <small id="rateEntriesModalWarning">Score got to be between 0-5</small>
+        </div>
+        <div class="form-group">
+          <label>Comment:</label>
+          <textarea class="form-control" id="rateEntriesModalComment" rows="2"></textarea>
+        </div>
+        <div>
+          <button id="rateEntriesSubmitButt" class="btn btn-primary">Submit</button>
+          <button id="rateEntriesBackButt" class="btn btn-primary">Back</button>
+        </div>
     </div>
   </div>
 </div>

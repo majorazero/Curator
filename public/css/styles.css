@@ -371,7 +371,7 @@ i.far {
 .login-only {
   display:none;
 }
-#usernameWarningMessage, #addRestScoreWarning, #addRestSearchWarning, #loginPassWarning, #loginUserWarning{
+#usernameWarningMessage, #addRestScoreWarning, #addRestSearchWarning, #loginPassWarning, #loginUserWarning, #rateEntriesModalWarning{
   display: none;
   color: red;
 }

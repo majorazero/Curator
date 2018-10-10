@@ -89,6 +89,20 @@ module.exports = (app) => {
         });
     });
 
+    app.post("/api/ratings/groupRestId",function(req,res){
+      db.Rating.findAll({
+        where:{
+          clanId: req.body.clanId,
+          restaurantId: req.body.restId
+        },
+        include: [
+          {model: db.User}
+        ]
+      }).then(function(data){
+        res.json(data);
+      })
+    });
+
     //
     app.post("/api/ratings/groupRest", (req, res) => {
       db.Rating.findAll({
