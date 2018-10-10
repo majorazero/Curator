@@ -85,6 +85,7 @@ function firstScroll(data,scoreSum,ratingAmount){
 }
 
 function followCheck(){
+  $("#followUnfollow").show();
   //we check if isMember
   $.ajax({
     type: "POST",
@@ -118,18 +119,28 @@ function followCheck(){
       console.log(data2);
       sessionStorage.setItem("currMemStatus",data2[0].isMember);
       sessionStorage.setItem("currAdminStatus",data2[0].isAdmin);
-      //is with this group
-      $("#followUnfollow").text("Unfollow");
-      //destroy
-      $("#followUnfollow").on("click",function(){
-        $.ajax({
-          url: "/api/memberships/follow/"+sessionStorage.getItem("curatorId")+"/"+sessionStorage.getItem("currentClan"),
-          type: "delete"
-        }).then(function(){
-          followCheck();
-          $("#followUnfollow").off("click");
+      if(data2[0].isAdmin === true){
+        //no buttons
+        $("#followUnfollow").hide();
+      }
+      else{
+        if(data2[0].isMember === true){
+          $("#followUnfollow").text("Leave Group");
+        }
+        else{
+          $("#followUnfollow").text("Unfollow");
+        }
+        //destroy
+        $("#followUnfollow").on("click",function(){
+          $.ajax({
+            url: "/api/memberships/follow/"+sessionStorage.getItem("curatorId")+"/"+sessionStorage.getItem("currentClan"),
+            type: "delete"
+          }).then(function(){
+            followCheck();
+            $("#followUnfollow").off("click");
+          });
         });
-      });
+      }
     }
     $("#firstLayerModal").modal("show");
   });
