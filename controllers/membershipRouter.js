@@ -12,6 +12,16 @@ module.exports = function (app) {
     //     });
     // });
 
+    app.post("/api/memberships/clanUserIsMember",function(req,res){
+      db.Membership.findAll({
+        where: {
+           clanId: req.body.clanId,
+           userId: req.body.userId
+        }
+      }).then(function(data){
+        res.json(data);
+      })
+    });
 
     // GET route for getting all of the memberships by UserId
     // And if user is a member
@@ -189,6 +199,18 @@ module.exports = function (app) {
             }
         });
     });
+
+    app.delete("/api/memberships/follow/:id/:clanId",function(req,res){
+      db.Membership.destroy({
+        where: {
+          userId: req.params.id,
+          clanId: req.params.clanId
+        }
+      }).then(function(response){
+        res.json("Destroyed");
+      });
+    })
+
     // PUT route for updating a restaurant
     app.put("/api/memberships/:id", function (req, res) {
         db.Membership.update({
