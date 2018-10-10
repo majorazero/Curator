@@ -258,7 +258,7 @@
 <!-- rate restaurants modal -->
 <div id='rateEntriesModal' class="modal fade" tabindex="-1" role="dialog">
   <div class="modal-dialog modal-dialog-centered2" role="document">
-    <div class="modal-content">
+    <div class="modal-content" id="content-fix-1">
       <div id="rateEntriesModalHeader" class="modal-header">
 
       </div>
@@ -267,15 +267,15 @@
       </div>
 
         <div class="form-group">
-          <label>Rating: </label>
+          <label class="marg">Rating: </label>
           <input type="number" min="0" max="5" class="form-control" id="rateEntriesModalRate" placeholder="Enter Rating">
           <small id="rateEntriesModalWarning">Score got to be between 0-5</small>
         </div>
         <div class="form-group">
-          <label>Comment: </label>
+          <label class="marg">Comment: </label>
           <textarea class="form-control" id="rateEntriesModalComment" rows="2"></textarea>
         </div>
-        <div>
+        <div class="marg">
           <button id="rateEntriesSubmitButt" class="btn">Submit</button>
           <button id="rateEntriesBackButt" class="btn">Back</button>
         </div>

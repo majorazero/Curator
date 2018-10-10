@@ -487,6 +487,17 @@ body {
     font-weight: bolder;
 }
 
+#content-fix-1 {
+    background-color: black;
+    opacity: 0.8;
+    color: whitesmoke;
+    border-radius: 5px !important;
+}
+
+.marg {
+    margin: 0 0 5px 17px;
+}
+
 .expandExtraBtns {
     color: whitesmoke;
     height: 50px;
