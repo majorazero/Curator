@@ -187,4 +187,16 @@ module.exports = (app) => {
             res.status(404).json(err);
         });
     });
+    //delete by restaurantid
+    app.delete("/api/ratings/destroy/RestId", function(req,res){
+      console.log(req.body.restId);
+      db.Rating.destroy({
+        where: {
+          restaurantId: req.body.restId,
+          clanId: req.body.clanId
+        }
+      }).then(function(data){
+        res.json(data);
+      });
+    });
 };

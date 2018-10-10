@@ -145,6 +145,26 @@ function secondScroll(data,scoreSum,ratingAmount){
     });
   });
   ratingCard.append(commentIcon);
+
+  //admin only destroy button
+  let destroyButton = $("<i>").addClass("adminOnly fa fa-lg fa-trash").attr("data-restid",data.restaurantId);
+  destroyButton.on("click",function(){
+    console.log($(this).attr("data-restid"));
+    $.ajax({
+      url: "/api/ratings/destroy/RestId",
+      type: "DELETE",
+      data: {
+        restId: $(this).attr("data-restid"),
+        clanId: sessionStorage.getItem("currentClan")
+      }
+    }).then(function(data){
+      console.log(data);
+      //refreshes
+      secondLayerList(currTarget2);
+    });
+  });
+  ratingCard.append(destroyButton);
+
   $(outerWrapper).append(ratingCard);
   $("#expanded-scrollMenu").append(outerWrapper);
 }
