@@ -200,6 +200,17 @@ module.exports = function (app) {
         });
     });
 
+    app.delete("/api/membership/destroy",function(req,res){
+      db.Membership.destroy({
+        where:{
+          id: req.body.id,
+          clanId: req.body.clanId
+        }
+      }).then(function(response){
+        res.json("Destroyed");
+      });
+    })
+
     app.delete("/api/memberships/follow/:id/:clanId",function(req,res){
       db.Membership.destroy({
         where: {
