@@ -9,11 +9,11 @@ const bodyParser = require("body-parser"),
 express = require("express"),
 hbs = require("express-handlebars"),
 path = require("path"),
-db = require("./models"),
-session = require("express-session");
-
-// Run environment file
-require("dotenv").config();
+db = require("./models");
+// session = require("express-session");
+//
+// // Run environment file
+// require("dotenv").config();
 
 // Components
 // ----------------------------------------
@@ -42,12 +42,12 @@ app.engine('hbs', hbs({defaultLayout: "main", extname: ".hbs"}));
 app.set('view engine', 'hbs');
 
 // Set session configuration
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: true,
-    cookie: {secure: "auto"}
-}));
+// app.use(session({
+//     secret: process.env.SESSION_SECRET,
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: {secure: "auto"}
+// }));
 
 // Routes
 // ----------------------------------------
