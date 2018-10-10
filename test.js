@@ -1,5 +1,6 @@
 let db = require("./models");
 
+
 db.Clan.create({
   name: "LA Hotdog Club",
   location: "LA",
@@ -49,6 +50,7 @@ db.Clan.create({
   isPublic: false,
   clanImage: "http://images.mid-day.com/images/2015/jan/08men-idiots.jpg"
 });
+//users
 db.User.create({
   username: "dummy",
   password: "dummy"
@@ -57,6 +59,98 @@ db.User.create({
   username: "dummy2",
   password: "dummy"
 });
+db.User.create({
+  username: "dummy3",
+  password: "dummy"
+});
+db.User.create({
+  username: "dummy4",
+  password: "dummy"
+});
+db.User.create({
+  username: "dummy5",
+  password: "dummy"
+});
+//members
+db.Membership.create({
+  clanId: 1,
+  userId: 1,
+  isMember: true,
+  isAdmin: true
+});
+db.Membership.create({
+  clanId: 2,
+  userId: 2,
+  isMember: true,
+  isAdmin: true
+});
+db.Membership.create({
+  clanId: 3,
+  userId: 5,
+  isMember: true,
+  isAdmin: true
+});
+db.Membership.create({
+  clanId: 4,
+  userId: 3,
+  isMember: true,
+  isAdmin: true
+});
+db.Membership.create({
+  clanId: 5,
+  userId: 1,
+  isMember: true,
+  isAdmin: true
+});
+db.Membership.create({
+  clanId: 6,
+  userId: 2,
+  isMember: true,
+  isAdmin: true
+});
+db.Membership.create({
+  clanId: 7,
+  userId: 5,
+  isMember: true,
+  isAdmin: true
+});
+//group 1 members
+db.Membership.create({
+  clanId: 1,
+  userId: 3,
+  isMember: true
+});
+db.Membership.create({
+  clanId: 1,
+  userId: 4,
+  isMember: true
+});
+//group 2 members
+db.Membership.create({
+  clanId: 2,
+  userId: 3,
+  isMember: true
+});
+db.Membership.create({
+  clanId: 2,
+  userId: 4,
+  isMember: true
+});
+db.Membership.create({
+  clanId: 2,
+  userId: 1,
+  isMember: true
+});
+//group 4 members
+db.Membership.create({
+  clanId: 4,
+  userId: 1
+});
+db.Membership.create({
+  clanId: 7,
+  userId: 1
+});
+//restaurants
 db.Restaurant.create({
   name: "Hot Dog Lady",
   imageLink: "https://s3-media4.fl.yelpcdn.com/bphoto/QbZ1LQkGm6xP9VNCWwxU2g/o.jpg",
@@ -95,90 +189,64 @@ db.Restaurant.create({
 
 db.Rating.create({
   rating: 5,
-  comment: "It's good.",
+  comment: "That's a great hotdog!",
   userId: 1,
   clanId: 1,
   restaurantId: 1
 });
 db.Rating.create({
   rating: 2,
-  comment: "It's good.",
+  comment: "It's bad.",
+  userId: 3,
+  clanId: 1,
+  restaurantId: 1
+});
+db.Rating.create({
+  rating: 4.2,
+  comment: "Its mathematically satisfactory.",
+  userId: 4,
+  clanId: 1,
+  restaurantId: 1
+});
+db.Rating.create({
+  rating: 2,
+  comment: "That's goddamn terrible.",
   userId: 1,
   clanId: 1,
   restaurantId: 2
 });
 db.Rating.create({
+  rating: 1,
+  comment: "Holy shit, LOL",
+  userId: 4,
+  clanId: 1,
+  restaurantId: 2
+});
+db.Rating.create({
   rating: 5,
-  comment: "It's good.",
+  comment: "It's pretty decent..",
   userId: 1,
   clanId: 1,
   restaurantId: 3
 });
 db.Rating.create({
   rating: 4,
-  comment: "It's good.",
+  comment: "It's not bad.",
   userId: 1,
   clanId: 1,
   restaurantId: 4
 });
 db.Rating.create({
   rating: 3,
-  comment: "It's good.",
+  comment: "It's pretty good.",
   userId: 1,
   clanId: 1,
   restaurantId: 5
 });
 db.Rating.create({
   rating: 2,
-  comment: "It's bad.",
-  userId: 2,
-  clanId: 1,
-  restaurantId: 1
-});
-db.User.create({
-  username: "dummy3",
-  password: "dummy"
-});
-db.User.create({
-  username: "dummy4",
-  password: "dummy"
-});
-db.User.create({
-  username: "dummy5",
-  password: "dummy"
-});
-db.Membership.create({
-  clanId: 2,
-  userId: 2,
-  isMember: true,
-  isAdmin: true
-});
-db.Membership.create({
-  clanId: 2,
+  comment: "It's pretty bad, dude.",
   userId: 3,
-  isMember: true
-});
-db.Membership.create({
-  clanId: 2,
-  userId: 4,
-  isMember: true
-});
-db.Membership.create({
-  clanId: 2,
-  userId: 1,
-  isMember: true
-});
-db.Membership.create({
-  clanId: 4,
-  userId: 1
-});
-db.Membership.create({
-  clanId: 3,
-  userId: 1,
-  isMember: true,
-  isAdmin: true
-});
-db.Membership.create({
-  clanId: 7,
-  userId: 1
+  clanId: 1,
+  restaurantId: 5
 });
