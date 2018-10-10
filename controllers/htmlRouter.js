@@ -9,6 +9,7 @@ module.exports = function (app) {
         isPublic: true
       }
     }).then(function(data){
+      console.log(data)
       let byFour = helper.exploreDataFormatter(data);
       res.render("index",{byFour});
     });
@@ -23,6 +24,7 @@ module.exports = function (app) {
         { model: db.Clan }
       ]
     }).then(function (data) {
+      console.log(data);
       let byFour = helper.exploreDataFormatter(data, "Clan");
       res.render("index", { byFour: byFour });
       //res.json({byFour});
