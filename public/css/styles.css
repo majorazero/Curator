@@ -505,6 +505,13 @@ body {
     text-align: center;
 }
 
+#expanded-scrollMenu .img-fluid {
+    object-fit: contain;
+    height: 100px;
+    width: 150px;
+}
+
+
 /* First Modal Scroll Menu */
 .scrollmenu {
   overflow-x: scroll;

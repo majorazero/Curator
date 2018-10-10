@@ -138,9 +138,9 @@ function secondScroll(data,scoreSum,ratingAmount){
       //load entries
       for(let i = 0; i < dataz.length; i++){
         let wrap = $("<div>");
-        wrap.append('<div>Username:'+dataz[i].User.username+'</div>');
-        wrap.append("<div>Rating:"+dataz[i].rating+"</div>");
-        wrap.append("<div>Comment:"+dataz[i].comment+"</div>");
+        wrap.append('<div>Username: '+dataz[i].User.username+'</div>');
+        wrap.append("<div>Rating: "+dataz[i].rating+"</div>");
+        wrap.append("<div>Comment: "+dataz[i].comment+"</div>");
         $("#rateEntries").append(wrap);
       }
 
