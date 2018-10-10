@@ -21,6 +21,7 @@ $("#navbar-log-sign").on("click", function () {
 //Back button from expand to firstLayer modal
 $("#backto-scroll-modal").on("click", function () {
   $('#expanded-modal').modal('hide');
+  firstLayerClick(currTarget);
   $('#firstLayerModal').modal('show');
 });
 

@@ -1,11 +1,15 @@
 let currTarget;
 $(".firstLayerClickable").on("click",function(){
-  let clanName = $(this).attr("data-name");
-  let clanId = $(this).attr("data-id");
-  sessionStorage.setItem("currentLoc",$(this).attr("data-location"));
+  firstLayerClick($(this));
+});
+
+function firstLayerClick(currTar){
+  let clanName = currTar.attr("data-name");
+  let clanId = currTar.attr("data-id");
+  sessionStorage.setItem("currentLoc",currTar.attr("data-location"));
   sessionStorage.setItem("currentClan",clanId);
-  sessionStorage.setItem("currentClanName",$(this).attr("data-name"));
-  currTarget = $(this);
+  sessionStorage.setItem("currentClanName",currTar.attr("data-name"));
+  currTarget = currTar;
   $("#followUnfollow").off("click");
   //not sure if this works the way i think it does
   //annoying handlebar stuff
@@ -47,7 +51,7 @@ $(".firstLayerClickable").on("click",function(){
     }
     followCheck();
   });
-});
+}
 
 function followCheck(){
   //we check if isMember
