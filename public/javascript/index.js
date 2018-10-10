@@ -44,6 +44,10 @@ $("#inviteCode").on("click", function () {
   $("#inviteCodeModal").modal("show");
 });
 
+$("#exit-modal").on("click",function(){
+  $("#firstLayerModal").modal("hide");
+});
+
 
 //New group modal functionality
 $("#create-new-group").on("click", function () {
