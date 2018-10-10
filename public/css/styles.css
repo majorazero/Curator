@@ -302,7 +302,7 @@ body {
 
 #firstLayerScroll {
     color: whitesmoke;
-    
+
 }
 
 #cat-img{
@@ -378,7 +378,7 @@ html {
 }
 
 #addRestSearchButt {
-margin: auto;    
+margin: auto;
 border-radius: 10px;
 
 }
@@ -429,7 +429,7 @@ i.far {
 .login-only {
   display:none;
 }
-#usernameWarningMessage, #addRestScoreWarning, #addRestSearchWarning, #loginPassWarning, #loginUserWarning, #rateEntriesModalWarning{
+#usernameWarningMessage, #addRestScoreWarning, #addRestSearchWarning, #loginPassWarning, #loginUserWarning, #rateEntriesModalWarning,#usernameWarningLengthMessage, #regPassWarningLengthMessage {
   display: none;
   color: red;
 }
