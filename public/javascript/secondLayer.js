@@ -3,9 +3,32 @@ $("#expand-btn").on("click", function(){
 });
 
 function secondLayerList(target){
-  //$("body").css("overflow", "hidden");
   $('#firstLayerModal').modal('hide');
   $("#expandedModalTitle").text(target.parent().attr("data-name"));
+  //re-hide member/admin buttons
+  $(".memberOnly").hide();
+  $(".adminOnly").hide();
+  //check to see if user is a member of this group
+  $.ajax({
+    url: "/api/memberships/clanUserIsMember",
+    type: "POST",
+    data: {
+      userId: sessionStorage.getItem("curatorId"),
+      clanId: sessionStorage.getItem("currentClan")
+    }
+  }).then(function(data){
+    if(data[0].isMember === true){
+      console.log(1);
+      //enable member only buttons
+      $(".memberOnly").show();
+    }
+    if(data[0].isAdmin === true){
+      console.log(2);
+      //enable admin only buttons
+      $(".adminOnly").show();
+    }
+  });
+
   $.ajax({
     url: "/api/ratings/groupRest",
     type: "POST",
