@@ -109,21 +109,11 @@ module.exports = (app) => {
         db.Rating
         .findAll({
             where: {
-                clanId: req.body.clanId
+                clanId: req.body.clanId,
+                restaurantId: req.body.restaurantId
             },
-            include: [
-                {
-                    model: db.Restaurant,
-                    attributes: [
-                        "id",
-                        "name",
-                        "imageLink",
-                        "address",
-                        "price",
-                        "yelpId",
-                        [db.sequelize.fn("AVG", db.sequelize.col("rating")), "averageRating"]
-                    ]
-                }
+            attributes: [
+                [db.sequelize.fn("AVG", db.sequelize.col("rating")), "averageRating"]
             ]
         })
         .then((data) => {
