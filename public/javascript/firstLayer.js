@@ -6,8 +6,7 @@ $(".firstLayerClickable").on("click",function(){
   sessionStorage.setItem("currentClan",clanId);
   sessionStorage.setItem("currentClanName",$(this).attr("data-name"));
   currTarget = $(this);
-  //sessionStorage.setItem("currTarget",$(this));
-  //sessionStorage.setItem("currentIsPublic",$(this).attr("data-public"));
+  $("#followUnfollow").off("click");
   //not sure if this works the way i think it does
   //annoying handlebar stuff
   if($(this).attr("data-public") === true || $(this).attr("data-public") === "true"){
