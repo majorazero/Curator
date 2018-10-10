@@ -63,6 +63,9 @@ body {
     cursor: pointer;
 }
 
+.btn {
+    background-color: goldenrod;
+}
 #inviteFix {
     background-color: rgb(7, 7, 7, 0.7);
     color: whitesmoke;
