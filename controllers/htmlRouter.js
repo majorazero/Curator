@@ -7,7 +7,10 @@ module.exports = function (app) {
     db.Clan.findAll({
       where:{
         isPublic: true
-      }
+      },
+      order: [
+        ["updatedAt","DESC"]
+      ]
     }).then(function(data){
       console.log(data)
       let byFour = helper.exploreDataFormatter(data);
@@ -23,6 +26,9 @@ module.exports = function (app) {
       },
       include: [
         { model: db.Clan }
+      ],
+      order: [
+        ["updatedAt","DESC"]
       ]
     }).then(function (data) {
       console.log(data);
@@ -40,6 +46,9 @@ module.exports = function (app) {
       },
       include: [
         { model: db.Clan }
+      ],
+      order: [
+        ["updatedAt","DESC"]
       ]
     }).then(function (data) {
       let byFour = helper.exploreDataFormatter(data, "Clan");

@@ -34,7 +34,7 @@ function firstLayerClick(currTar){
     $("#firstLayerScroll").empty();
     if(data.length === 0){
       console.log("Oops no entries!");
-      $("#firstLayerScroll").append("<img class='img-fluid' src='/images/noEntries.gif' />");
+      $("#firstLayerScroll").append("<img class='img-fluid' id='cat-img' src='/images/noEntries.gif' />");
       $("#firstLayerScroll").append("<h2>Oops, no entries!</h2>");
     }
     else{
@@ -70,16 +70,16 @@ function firstLayerClick(currTar){
 
 function firstScroll(data,scoreSum,ratingAmount){
   //append firstScroll onto firstLayerScroll
-  let firstScroll = $("<div>").addClass("card scroll-bar-item");
-  firstScroll.append("<div>"+data.Restaurant.name+"</div>");
-  firstScroll.append("<div><img class='img-fluid' src='"+data.Restaurant.imageLink+"' /></div>");
+  let firstScroll = $("<div>").addClass("card scroll-bar-item scroll-item5");
+  firstScroll.append("<div class='whitesmoke'>"+data.Restaurant.name+"</div>");
+  firstScroll.append("<div class='whitesmoke' ><img class='img-fluid top5-image' src='"+data.Restaurant.imageLink+"' /></div>");
   //have to figure out how ratings works.
-  firstScroll.append("<div>"+(scoreSum/ratingAmount).toFixed(2)+"</div>");
+  firstScroll.append("<div class='whitesmoke'>"+(scoreSum/ratingAmount).toFixed(2)+"</div>");
   if(data.Restaurant.price === null){
     firstScroll.append("<div>No earthly idea.</div>");
   }
   else{
-    firstScroll.append("<div>"+data.Restaurant.price+"</div>");
+    firstScroll.append("<div class='whitesmoke'>"+data.Restaurant.price+"</div>");
   }
   $("#firstLayerScroll").append(firstScroll);
 }

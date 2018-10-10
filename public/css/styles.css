@@ -74,6 +74,16 @@ body {
     margin-bottom: 0px;
 }
 
+.whitesmoke{
+    color:whitesmoke;
+    margin: 5px;
+}
+.scroll-item5{
+    background-color:rgb(7, 7, 7, 0.7);
+    margin-left: 10px;
+    margin-right: 10px;
+
+}
 .figure-img {
     background-color: rgb(0, 0, 0);
     height: 170px;
@@ -184,8 +194,8 @@ body {
 }
 
 .modal-dialog-centered2 {
-    margin-top: 100px;
-    margin-bottom: 100px;
+    /* margin-top: 100px; */
+    /* margin-bottom: 100px; */
     max-width: 50%;
     overflow: auto;
     border:1.5px solid goldenrod;
@@ -233,17 +243,33 @@ body {
 #Modal-Content-MoreInfo {
     border:1.5px solid goldenrod;
     border-radius: 32px;
+    text-align:center;
+    background-color: rgb(0, 0, 0, 0.8);
+}
+
+#inviteCodeLabel{
+    margin-bottom: -20px;
+}
+
+#invite-modal {
+    border:1.5px solid goldenrod;
+    border-radius: 32px;
     margin-top: 100px;
     margin-bottom: 100px;
     text-align:center;
-<<<<<<< HEAD
     background-color: rgb(0, 0, 0, 0.8);
-=======
-    background-color: rgb(0, 0, 0, 0.8); 
-    opacity: .8;
->>>>>>> Modal Styling
+    opacity: 0.8;
+    color: whitesmoke;
 }
 
+.close {
+    color: whitesmoke;
+}
+
+#invSub2{
+    border-radius: 10px;
+    margin: auto;
+}
 .modal-content-2 {
     border:1.5px solid goldenrod;
     height: 300px;
@@ -281,7 +307,7 @@ body {
 #modal-textfix {
     text-align:left;
     background-color: rgb(0, 0, 0, .85);
-    opacity: .8;
+    opacity: 0.8;
 }
 
 #firstLayerTitle {
@@ -290,6 +316,21 @@ body {
 
 #firstLayerScroll {
     color: whitesmoke;
+
+}
+
+#cat-img{
+    height: 300px;
+    width: 400px;
+}
+
+.top5-image {
+    height: 250px;
+    width: 300px;
+}
+
+.scroll-bar-item{
+    color:rgb(0, 0, 0, 0.1) !important;
 }
 
 .firstLayerClickable {
@@ -346,6 +387,19 @@ html {
     background: transparent;
 }
 
+#restSearch-modal{
+    border:1.5px solid goldenrod;
+    border-radius: 32px;
+    text-align:center;
+    background-color: rgb(0, 0, 0, 0.8);
+    color: whitesmoke;
+}
+
+#addRestSearchButt {
+margin: auto;
+border-radius: 10px;
+
+}
 /* Second Modal - Expanded Scroll Menu */
 .scrollmenu2{
     max-height: 66vh;
@@ -393,7 +447,7 @@ i.far {
 .login-only {
   display:none;
 }
-#usernameWarningMessage, #addRestScoreWarning, #addRestSearchWarning, #loginPassWarning, #loginUserWarning, #rateEntriesModalWarning{
+#usernameWarningMessage, #addRestScoreWarning, #addRestSearchWarning, #loginPassWarning, #loginUserWarning, #rateEntriesModalWarning,#usernameWarningLengthMessage, #regPassWarningLengthMessage {
   display: none;
   color: red;
 }

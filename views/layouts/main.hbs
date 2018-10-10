@@ -38,7 +38,7 @@
   <!-- invite code modal -->
   <div class="modal fade" id="inviteCodeModal" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div id="invite-modal" class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="inviteCodeLabel">Wow such a cool kid!</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -94,10 +94,12 @@
             <label class="col-form-label">Username</label>
             <input type="text" class="form-control" placeholder="Your Username" id="regUsername">
             <small id="usernameWarningMessage">Username already used!</small>
+            <small id="usernameWarningLengthMessage">Username has to be at least 2 characters with a max of 30 characters.</small>
           </div>
           <div class="form-group">
             <label class="col-form-label">Password</label>
             <input type="password" class="form-control" placeholder="Your Password" id="regPass">
+            <small id="regPassWarningLengthMessage">Password has a max length of 40 characters!</small>
           </div>
         </form>
       </div>
