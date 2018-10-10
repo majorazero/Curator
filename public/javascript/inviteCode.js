@@ -14,6 +14,7 @@ $("#invSub2").on("click",function(){
     $("#inviteStatusMess").text(data);
     $("#inviteStatus").modal("show");
     $("#inviteCodeModal").modal("hide");
+    window.location.replace("/yourGroups/"+sessionStorage.getItem("curatorId"));
   }).fail(function(){
     $("#inviteStatusMess").empty();
     $("#inviteStatusMess").text("Bad invite code!");
