@@ -68,6 +68,7 @@ $("#logout").on("click", function () {
   localStorage.clear();
   $("#profileModal").modal("toggle");
   $(".login-only").hide();
+  window.location.replace("/");
 });
 
 //register transition
