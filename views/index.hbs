@@ -11,7 +11,6 @@
       <div class="card-body">
         <h5 class="card-title">{{name}}</h5>
         <p class="card-text">{{blurb}}</p>
-      </div>
       <!-- might remove the next 2 secions if they don't do anything -->
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Description of group here: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas vero temporibus enim nisi?</li>
@@ -23,6 +22,7 @@
       <!-- <a href="#" id="follow-btn" class="card-link">Follow</a>
       <a href="#" id="unfollow-btn" class="card-link">Unfollow</a> -->
     </div>
+    </div>
   </div>
   {{/each}}
 </div>
@@ -30,8 +30,8 @@
 
 <!-- More info Modal -->
 <div class="modal fade modal-body" id="firstLayerModal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered1 " role="document">
-    <div class="modal-content">
+  <div class="modal-dialog modal-dialog-centere2 " role="document">
+    <div id="Modal-Content-MoreInfo" class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="firstLayerTitle"></h5>
       </div>
@@ -52,6 +52,7 @@
           <button type="button" class="btn btn-secondary" id="flagModButts">flag</button>
           <button id="followUnfollow" type="button" class="btn btn-primary"></button>
           <button type="button" class="btn btn-primary" id="expand-btn" data-toggle="button">Expand</button>
+          <button type="button" id="exit-modal" class="btn btn-primary">Exit</button>
         </div>
       </div>
     </div>
@@ -84,20 +85,20 @@
                         </div> -->
 
           </div>
-          <div class="col-sm-1">
-            <i class="fa fa-lg fa-comments"></i>
+          <div class="col-sm-1 expandBtnsGroup">
+            <i class="fa fa-lg fa-comments expandExtraBtns"></i>
             <br>
-            <i id="usersListButton" class="fa fa-lg fa-users"></i>
+            <i id="usersListButton" class="fa fa-lg fa-users expandExtraBtns"></i>
             <br>
-            <i id="shareButton" class="fa fa-lg fa-share-alt"></i>
+            <i id="shareButton" class="fa fa-lg fa-share-alt expandExtraBtns"></i>
             <br>
-            <i class="fa fa-lg fa-paper-plane"></i>
+            <i class="fa fa-lg fa-paper-plane expandExtraBtns"></i>
             <br>
-            <i class="fa fa-lg fa-bullhorn"></i>
+            <i class="fa fa-lg fa-bullhorn expandExtraBtns"></i>
             <br>
-            <i id='addRestButton' class="fa fa-lg fa-plus"></i>
+            <i id='addRestButton' class="fa fa-lg fa-plus expandExtraBtns"></i>
             <br>
-            <i id="visiButton" class="fa fa-lg"></i>
+            <i id="visiButton" class="fa fa-lg fa-eye expandExtraBtns"></i>
           </div>
         </div>
       </div>
@@ -110,7 +111,7 @@
 
 <!-- Add restuarant modal -->
 <div class="modal fade" id="addRest" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-centered2" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="addRestTitle">Restaurant Search</h5>
@@ -136,7 +137,7 @@
 
 <!-- insert intial ratings -->
 <div id="addRestRating" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-centered2" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Intial Rating</h5>
@@ -244,7 +245,7 @@
 
 <!-- users list modal -->
 <div id='usersList' class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-centered2" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Users List</h5>
@@ -264,7 +265,7 @@
 
 <!-- invite code generation per clan -->
 <div id='inviteCodeGenerateModal' class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-centered2" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Users List</h5>
