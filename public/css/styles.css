@@ -319,7 +319,7 @@ html {
     overflow: scroll;
 }
 
-.scrollmenu::-webkit-scrollbar {
+.scrollmenu::-webkit-scrollbar, .scrollmenu2::-webkit-scrollbar{
     width: 0px;
     background: transparent;
 }
