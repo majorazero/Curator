@@ -62,6 +62,7 @@ require("./controllers/indexRouter.js")(app);
 // Sync sequelize models + listen
 db.sequelize
 .sync({force: false})
+
 .then(() => {
     app.listen(PORT, () => {
         console.log(`Food Curator server running on port ${PORT}`);

@@ -62,17 +62,17 @@
 
 <!-- register success modal -->
 <div class="modal" id="registerSuccess" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
+  <div class="modal-dialog modal-dialog-centered " role="document">
+    <div class="modal-content modal-register">
+      <div class="modal-header modal-register-title">
         <h5 class="modal-title">Registration Success!</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body modal-register-text">
         <p>Welcome new curator!</p>
-        <small>Please try to log-in!</small>
+        <small>Now please try to log-in!</small>
       </div>
     </div>
   </div>
@@ -80,9 +80,9 @@
 
 <!-- register modal -->
 <div class="modal fade" id="registerModal" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
+  <div id="register-modal" class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content modal-register">
+      <div class="modal-header modal-register-title">
         <h5 class="modal-title">You're on your way to be Curator!</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
@@ -90,13 +90,13 @@
       </div>
       <div class="modal-body">
         <form>
-          <div class="form-group">
+          <div class="form-group modal-register-text">
             <label class="col-form-label">Username</label>
             <input type="text" class="form-control" placeholder="Your Username" id="regUsername">
             <small id="usernameWarningMessage">Username already used!</small>
             <small id="usernameWarningLengthMessage">Username has to be at least 2 characters with a max of 30 characters.</small>
           </div>
-          <div class="form-group">
+          <div class="form-group modal-register-text">
             <label class="col-form-label">Password</label>
             <input type="password" class="form-control" placeholder="Your Password" id="regPass">
             <small id="regPassWarningLengthMessage">Password has a max length of 40 characters!</small>
@@ -138,18 +138,18 @@
 
   <!--Log in/ sign in Modal -->
 <div class="modal fade" id="log-sign-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
+  <div class="modal-dialog modal-dialog-centered modal-sign-in" role="document">
+    <div id="Modal-Content-Login" class="modal-content">
 <form id="login" class="form-signin" _lpchecked="1">
-      <img class="mb-4" src="http://pngimage.net/wp-content/uploads/2018/06/sign-in-png-7.png" alt="" width="72" height="72" style="margin-top:15px;">
-      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <img class="mb-4" src="/images/dummy-icon.png" alt="" width="72" height="72" style="margin-top:15px;">
+      <h1 id="signInText" class="h3 mb-3 font-weight-bolder ">Please sign in</h1>
       <label for="inputEmail" class="sr-only">Username</label>
       <input type="text" id="inputUsername" class="form-control" placeholder="Username" required="" autofocus="" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAkCAYAAADo6zjiAAAAAXNSR0IArs4c6QAAAbNJREFUWAntV8FqwkAQnaymUkpChB7tKSfxWCie/Yb+gbdeCqGf0YsQ+hU95QNyDoWCF/HkqdeiIaEUqyZ1ArvodrOHxanQOiCzO28y781skKwFW3scPV1/febP69XqarNeNTB2KGs07U3Ttt/Ozp3bh/u7V7muheQf6ftLUWyYDB5yz1ijuPAub2QRDDunJsdGkAO55KYYjl0OUu1VXOzQZ64Tr+IiPXedGI79bQHdbheCIAD0dUY6gV6vB67rAvo6IxVgWVbFy71KBKkAFaEc2xPQarXA931ot9tyHphiPwpJgSbfe54Hw+EQHMfZ/msVEEURjMfjCjbFeG2dFxPo9/sVOSYzxmAwGIjnTDFRQLMQAjQ5pJAQkCQJ5HlekeERxHEsiE0xUUCzEO9AmqYQhiF0Oh2Yz+ewWCzEY6aYKKBZCAGYs1wuYTabKdNNMWWxnaA4gp3Yry5JBZRlWTXDvaozUgGTyQSyLAP0dbb3DtQlmcan0yngT2ekE9ARc+z4AvC7nauh9iouhpcGamJeX8XF8MaClwaeROWRA7nk+tUnyzGvZrKg0/40gdME/t8EvgG0/NOS6v9NHQAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
       <small id="loginUserWarning">User Not Found!</small>
       <label for="inputPassword" class="sr-only">Password</label>
       <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="" autocomplete="off" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAkCAYAAADo6zjiAAAAAXNSR0IArs4c6QAAAbNJREFUWAntV8FqwkAQnaymUkpChB7tKSfxWCie/Yb+gbdeCqGf0YsQ+hU95QNyDoWCF/HkqdeiIaEUqyZ1ArvodrOHxanQOiCzO28y781skKwFW3scPV1/febP69XqarNeNTB2KGs07U3Ttt/Ozp3bh/u7V7muheQf6ftLUWyYDB5yz1ijuPAub2QRDDunJsdGkAO55KYYjl0OUu1VXOzQZ64Tr+IiPXedGI79bQHdbheCIAD0dUY6gV6vB67rAvo6IxVgWVbFy71KBKkAFaEc2xPQarXA931ot9tyHphiPwpJgSbfe54Hw+EQHMfZ/msVEEURjMfjCjbFeG2dFxPo9/sVOSYzxmAwGIjnTDFRQLMQAjQ5pJAQkCQJ5HlekeERxHEsiE0xUUCzEO9AmqYQhiF0Oh2Yz+ewWCzEY6aYKKBZCAGYs1wuYTabKdNNMWWxnaA4gp3Yry5JBZRlWTXDvaozUgGTyQSyLAP0dbb3DtQlmcan0yngT2ekE9ARc+z4AvC7nauh9iouhpcGamJeX8XF8MaClwaeROWRA7nk+tUnyzGvZrKg0/40gdME/t8EvgG0/NOS6v9NHQAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
       <small id="loginPassWarning">Bad password!</small>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+      <button id="loginSubmitBtn" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
       <p>
         <a href="#" id="toRegisterButton">New? Register!</a>
       </p>
