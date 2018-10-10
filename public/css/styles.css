@@ -75,7 +75,7 @@ body {
 
 .whitesmoke{
     color:whitesmoke;
-    margin: 10px;
+    margin: 5px;
 }
 .scroll-item5{
     background-color:rgb(7, 7, 7, 0.7);
@@ -194,7 +194,7 @@ body {
 
 .modal-dialog-centered2 {
     /* margin-top: 100px; */
-    margin-bottom: 100px;
+    /* margin-bottom: 100px; */
     max-width: 50%;
     overflow: auto;
     border:1.5px solid goldenrod;
@@ -305,11 +305,14 @@ body {
     
 }
 
-
+#cat-img{
+    height: 300px;
+    width: 400px;
+}
 
 .top5-image {
-    height: 300px;
-    width: 284px;
+    height: 250px;
+    width: 300px;
 }
 
 .scroll-bar-item{
