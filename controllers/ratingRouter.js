@@ -56,7 +56,7 @@ module.exports = (app) => {
             res.status(404).json(err);
         });
     });
-    // 
+    //
     app.get("/api/ratings/checkExist/:clanId/:yelpId", (req,res) => {
       console.log(req.params.clanId,req.params.yelpId);
       db.Rating.findAll({
@@ -89,7 +89,7 @@ module.exports = (app) => {
         });
     });
 
-    // 
+    //
     app.post("/api/ratings/groupRest", (req, res) => {
       db.Rating.findAll({
         where: {
@@ -98,6 +98,9 @@ module.exports = (app) => {
         include: [
           {model: db.Restaurant},
           {model: db.Clan}
+        ],
+        order: [
+          ["restaurantId","ASC"]
         ]
       }).then(function(data){
         res.json(data);
@@ -109,12 +112,22 @@ module.exports = (app) => {
         db.Rating
         .findAll({
             where: {
-                clanId: req.body.clanId,
-                restaurantId: req.body.restaurantId
+              clanId: req.body.clanId
             },
-            attributes: [
-                [db.sequelize.fn("AVG", db.sequelize.col("rating")), "averageRating"]
-            ]
+            include: [
+             {
+               model: db.Restaurant,
+               attributes: [
+                   "id",
+                   "name",
+                   "imageLink",
+                   "address",
+                   "price",
+                   "yelpId",
+                   [db.sequelize.fn("AVG", db.sequelize.col("rating")), "averageRating"]
+               ]
+             }
+           ]
         })
         .then((data) => {
             res.status(200).json(data);

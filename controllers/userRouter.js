@@ -40,13 +40,13 @@ module.exports = function(app){
           //tokens are uniquely generated based on user name and password
           const tokenUtil = new TokenUtility(req.body.username);
           let token = tokenUtil.encode(req.body.password);
-          res.cookie("token", token, {expires: new Date(Date.now() + 999999999)});
-          const sessionUser = {
-            token: token, 
-            id: user.dataValues.id, 
-            username: user.dataValues.username
-          };
-          req.session.user = sessionUser;
+          // res.cookie("token", token, {expires: new Date(Date.now() + 999999999)});
+          // const sessionUser = {
+          //   token: token,
+          //   id: user.dataValues.id,
+          //   username: user.dataValues.username
+          // };
+          // req.session.user = sessionUser;
           //saves token
           db.User.update({
             token: token
@@ -56,7 +56,8 @@ module.exports = function(app){
             }
           }).then(function(data){
             //sends token back to front end.
-            res.json(sessionUser);
+            res.json({token: token, id: user.dataValues.id, username: user.dataValues.username});
+            //res.json(sessionUser);
           });
         } else {
           //sends bad password back as a womp response

@@ -39,18 +39,49 @@ function firstLayerClick(currTar){
     }
     else{
       //constructs the scroll menu content
+      let currRestId;
+      let scoreSum = 0; //sum of ratings
+      let ratingAmount = 0; //sum divided by this will give you average
       for(let i = 0; i < data.length; i++){
-        let firstScroll = $("<div>").addClass("card scroll-bar-item");
-        firstScroll.append("<div>"+data[i].Restaurant.name+"</div>");
-        firstScroll.append("<div><img class='img-fluid' src='"+data[i].Restaurant.imageLink+"' /></div>");
-        //have to figure out how ratings works.
-        firstScroll.append("<div>*****</div>");
-        firstScroll.append("<div>"+data[i].Restaurant.price+"</div>");
-        $("#firstLayerScroll").append(firstScroll);
+        //if currRestId changes
+        if(currRestId !== data[i].restaurantId){
+          //so we don't push in an undefined div.
+          if(currRestId !== undefined){
+            firstScroll(data[i-1],scoreSum,ratingAmount);
+          }
+          //set currRestId to the new one.
+          currRestId = data[i].restaurantId;
+          scoreSum = data[i].rating;
+          ratingAmount = 1;
+          if (i === data.length-1){
+            firstScroll(data[i],scoreSum,ratingAmount);
+          }
+        }
+        else{
+          //lets just sum up the rating here
+          scoreSum += data[i].rating;
+          ratingAmount++;
+        }
       }
     }
     followCheck();
   });
+}
+
+function firstScroll(data,scoreSum,ratingAmount){
+  //append firstScroll onto firstLayerScroll
+  let firstScroll = $("<div>").addClass("card scroll-bar-item");
+  firstScroll.append("<div>"+data.Restaurant.name+"</div>");
+  firstScroll.append("<div><img class='img-fluid' src='"+data.Restaurant.imageLink+"' /></div>");
+  //have to figure out how ratings works.
+  firstScroll.append("<div>"+(scoreSum/ratingAmount).toFixed(2)+"</div>");
+  if(data.Restaurant.price === null){
+    firstScroll.append("<div>No earthly idea.</div>");
+  }
+  else{
+    firstScroll.append("<div>"+data.Restaurant.price+"</div>");
+  }
+  $("#firstLayerScroll").append(firstScroll);
 }
 
 function followCheck(){
