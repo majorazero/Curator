@@ -121,3 +121,8 @@ function makeRating(restId){
     secondLayerList($("#expand-btn"));
   })
 }
+
+$("#addRestBackButt").on("click",function(){
+  $("#addRest").modal("hide");
+  secondLayerList($("#expand-btn"));
+});
