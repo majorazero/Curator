@@ -29,15 +29,15 @@ Disclaimer: Our app uses Yelp's API.
 
 <b>Users - Member</b>
 
-- Users can be members of multiple groups. 
-- Members of groups can participate in rating restaurants for that specific group. 
+- Users can be members of multiple groups.
+- Members of groups can participate in rating restaurants for that specific group.
 - Users may "Leave Group"
 - Users may view who other members are in the group.
 
 <b>Users - Admin</b>
 
-- Admin are assign to the creator of a group. 
-- Admins can go to members list and kick their members. 
+- Admin are assign to the creator of a group.
+- Admins can go to members list and kick their members.
 - Admins can generate invite code to invite more users in to thier group.
 - Admins can search for and add restaurants to their clan for their members to rate. (through the Yelp API)
 - Admin can delete restaurant entries for their clan and all ratings associated with it.
@@ -46,8 +46,8 @@ Disclaimer: Our app uses Yelp's API.
 <b>Group - Basics</b>
 
 - Groups have a general info tab that shows a quick take on all the group's ratings. Kind of like a summary.
-- Groups have an expanded info tab that shows more detailed views of the intial info. 
-- All groups have a location tag attached to it, and any restaurant searched based on the group's location unless otherwise specified. 
+- Groups have an expanded info tab that shows more detailed views of the intial info.
+- All groups have a location tag attached to it, and any restaurant searched based on the group's location unless otherwise specified.
 
 # Built With
 [<img src="https://catalin.red/dist/uploads/2011/01/css3-html5-logo-initial.png" width="120" />](https://en.wikipedia.org/wiki/HTML5)
@@ -57,7 +57,9 @@ Disclaimer: Our app uses Yelp's API.
 [<img alt="express" src="https://i.cloudup.com/zfY6lL7eFa-3000x3000.png" width="200">](https://www.npmjs.com/package/express)
 [<img alt="handlebars" src="https://handlebarsjs.com/images/handlebars_logo.png" width="150" />](https://handlebarsjs.com/)
 [<img alt="sequelize" src="https://cdn.worldvectorlogo.com/logos/sequelize.svg" width="100" />](http://docs.sequelizejs.com/)
-[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Yelp_Logo.svg/1200px-Yelp_Logo.svg.png" width="200 />](https://www.yelp.com/developers/documentation/v3)
+
+
+...also Yelp Api.
 
 # Made By
 [<img src='https://avatars0.githubusercontent.com/u/26889220?s=460&v=4' width='100'>](https://github.com/majorazero)
