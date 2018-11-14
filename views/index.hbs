@@ -11,17 +11,17 @@
       <div class="card-body">
         <h5 class="card-title">{{name}}</h5>
         <p class="card-text">{{blurb}}</p>
-      </div>
       <!-- might remove the next 2 secions if they don't do anything -->
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Description of group here: Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptas vero temporibus enim nisi quae maiores similique quo incidunt, explicabo assumenda labore quos, facere ut doloribus deserunt cumque est commodi a!</li>
-        <li class="list-group-item">Number of Members</li>
-        <li class="list-group-item">Private vs. Public</li>
+        <li class="list-group-item"></li>
+        <!-- <li class="list-group-item">Number of Members</li> -->
+        <li class="list-group-item">Location: {{location}}</li>
       </ul>
     </div>
     <div class="Card-Body-Bottom card-body login only">
-      <a href="#" id="follow-btn" class="card-link">Follow</a>
-      <a href="#" id="unfollow-btn" class="card-link">Unfollow</a>
+      <!-- <a href="#" id="follow-btn" class="card-link">Follow</a>
+      <a href="#" id="unfollow-btn" class="card-link">Unfollow</a> -->
+    </div>
     </div>
   </div>
   {{/each}}
@@ -30,8 +30,8 @@
 
 <!-- More info Modal -->
 <div class="modal fade modal-body" id="firstLayerModal" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered1 " role="document">
-    <div class="modal-content">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div id="Modal-Content-MoreInfo" class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="firstLayerTitle"></h5>
       </div>
@@ -39,19 +39,13 @@
       <div class="modal-body">
         <!-- Scroll Modal -->
         <div id="firstLayerScroll" class="scrollmenu">
-          <!-- <div class="card scroll-bar-item">
-                        <div>Restaurant Name</div>
-                        <div>Group Members</div>
-                        <div class="modal-res-image"><img class="img-fluid" src="https://img.freepik.com/free-vector/pizzeria-logo_1051-1483.jpg" /></div>
-                        <div>*****</div>
-                        <div>$$$$$</div>
-                    </div> -->
         </div>
         <!-- Modal Footer -->
         <div id='firstLayerFooter' class="modal-footer">
-          <button type="button" class="btn btn-secondary" id="flagModButts">flag</button>
-          <button type="button" class="btn btn-primary">watch</button>
-          <button type="button" class="btn btn-primary" id="expand-btn" data-toggle="button">Expand</button>
+          <!-- <button type="button" class="btn btn-secondary" id="flagModButts">flag</button> -->
+          <button id="followUnfollow" type="button" class="btn"></button>
+          <button type="button" class="btn" id="expand-btn" data-toggle="button">Expand</button>
+          <button type="button" id="exit-modal" class="btn">Exit</button>
         </div>
       </div>
     </div>
@@ -68,41 +62,20 @@
             <div class="modal-body">
                 <div class="row">
                     <div id="expanded-scrollMenu" class="col-sm-11 scrollmenu2">
-
-            <!-- <div class="row group-rest-info">
-                          <div class="col-sm-3">
-                              <div class="rest-img"><img class="img-fluid" src="https://img.freepik.com/free-vector/pizzeria-logo_1051-1483.jpg" /></div>
-                          </div>
-                          <div class="col-sm-7">
-                              <div class="rest-name">Restaurant 1</div>
-                              <div class="rest-address">Dummy addddrrreesssss</div>
-                              <div class="rest-price">$$$</div>
-                          </div>
-                          <div class="col-sm-2">
-                              <div class="rest-rating">*****</div>
-                          </div>
-                        </div> -->
-
           </div>
-          <div class="col-sm-1">
-            <i class="fa fa-lg fa-comments"></i>
+          <div class="col-sm-1 expandBtnsGroup">
+            <i id="usersListButton" class="memberOnly fa fa-lg fa-users expandExtraBtns"></i>
             <br>
-            <i id="usersListButton" class="fa fa-lg fa-users"></i>
+            <i id="shareButton" class="adminOnly fa fa-lg fa-share-alt expandExtraBtns"></i>
             <br>
-            <i id="shareButton" class="fa fa-lg fa-share-alt"></i>
+            <i id='addRestButton' class="adminOnly fa fa-lg fa-plus expandExtraBtns"></i>
             <br>
-            <i class="fa fa-lg fa-paper-plane"></i>
-            <br>
-            <i class="fa fa-lg fa-bullhorn"></i>
-            <br>
-            <i id='addRestButton' class="fa fa-lg fa-plus"></i>
-            <br>
-            <i id="visiButton" class="fa fa-lg"></i>
+            <i id="visiButton" class="adminOnly fa fa-lg fa-eye expandExtraBtns"></i>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" id="backto-scroll-modal" class="btn btn-primary">Back</button>
+        <button type="button" id="backto-scroll-modal" class="btn">Back</button>
       </div>
     </div>
   </div>
@@ -110,8 +83,8 @@
 
 <!-- Add restuarant modal -->
 <div class="modal fade" id="addRest" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
+  <div class="modal-dialog modal-dialog-centered2" role="document">
+    <div class="modal-content" id="restSearch-modal">
       <div class="modal-header">
         <h5 class="modal-title" id="addRestTitle">Restaurant Search</h5>
       </div>
@@ -128,7 +101,8 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button id="addRestSearchButt" type="button" class="btn btn-primary">Search</button>
+        <button id="addRestBackButt" class="btn">Back</button>
+        <button id="addRestSearchButt" type="button" class="btn">Search</button>
       </div>
     </div>
   </div>
@@ -136,7 +110,7 @@
 
 <!-- insert intial ratings -->
 <div id="addRestRating" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-centered2" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Intial Rating</h5>
@@ -157,7 +131,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button id="addRestRatingButt" type="button" class="btn btn-primary">Submit</button>
+        <button id="addRestRatingButt" type="button" class="btn">Submit</button>
       </div>
     </div>
   </div>
@@ -183,7 +157,7 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Report</button>
+        <button type="button" class="btn">Report</button>
       </div>
     </div>
   </div>
@@ -196,9 +170,9 @@
 <div class="modal fade" id="new-group-modal" tabindex="-1" role="dialog"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div id="Modal-Content-MoreInfo" class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="newGroup">Create a new group</h5>
+        <h5 class="modal-title" id="newGroupHeader">Create a new group</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -206,31 +180,31 @@
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="recipient-name" class="col-form-label">Group Name:</label>
+            <label for="recipient-name" class="col-form-label newGroupText">Group Name:</label>
             <input type="text" class="form-control" id="group-input">
-            <small id="groupnameWarningMessage">Must contain a group name</small>
+            <small id="groupnameWarningMessage" class="newGroupText">Must contain a group name</small>
           </div>
             <div class="form-group">
-            <label for="message-text" class="col-form-label">Group Description:</label>
+            <label for="message-text" class="col-form-label newGroupText">Group Description:</label>
             <textarea class="form-control" id="groupdescription-input"></textarea>
-            <small id="groupdescriptionWarningMessage">Must contain a group description</small>
+            <small id="groupdescriptionWarningMessage" class="newGroupText">Must contain a group description</small>
           </div>
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Location:</label>
+            <label for="message-text" class="col-form-label newGroupText">Location:</label>
             <textarea class="form-control" id="location-input"></textarea>
-            <small id="locationWarningMessage">Must contain a location</small>
+            <small id="locationWarningMessage" class="newGroupText">Must contain a location</small>
           </div>
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Public/Private:</label>
+            <label for="message-text" class="col-form-label newGroupText">Public/Private:</label>
             <select id="pub-priv-input">
               <option value="true">Public</option>
               <option value="false">Private</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="message-text" class="col-form-label">Group Image Url:</label>
+            <label for="message-text" class="col-form-label newGroupText">Group Image Url:</label>
             <textarea class="form-control" id="clan-img-input"></textarea>
-            <small id="clanImageWarningMessage">Most contain an image URL</small>
+            <small id="clanImageWarningMessage" class="newGroupText">Most contain an image URL</small>
           </div>
         </form>
       </div>
@@ -243,20 +217,20 @@
 </div>
 
 <!-- users list modal -->
-<div id='usersList' class="modal" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
+<div id='usersList' class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered2 " role="document">
+    <div class="modal-content" id="modal-fix">
       <div class="modal-header">
         <h5 class="modal-title">Users List</h5>
       </div>
-      <div class="modal-body">
-        <div>Admin:</div>
+      <div class="modal-body users">
+        <div class="admins">Admins</div>
         <div id="usersAdmin"></div>
-        <div>Member:</div>
+        <div class="members">Members</div>
         <div id="usersMember"></div>
       </div>
       <div class='modal-footer'>
-        <button id="userListBack" class="btn btn-primary">Back</button>
+        <button id="userListBack" class="btn">Back</button>
       </div>
     </div>
   </div>
@@ -264,8 +238,8 @@
 
 <!-- invite code generation per clan -->
 <div id='inviteCodeGenerateModal' class="modal fade" tabindex="-1" role="dialog">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
+  <div  class="modal-dialog modal-dialog-centered2" role="document">
+    <div class="modal-content" id="inviteFix">
       <div class="modal-header">
         <h5 class="modal-title">Users List</h5>
       </div>
@@ -275,17 +249,45 @@
         <small>Use the invite code to auto-join!</small>
       </div>
       <div class='modal-footer'>
-        <button id="inviteBack" class="btn btn-primary">Back</button>
+        <button id="inviteBack" class="btn">Back</button>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- rate restaurants modal -->
+<div id='rateEntriesModal' class="modal fade" tabindex="-1" role="dialog">
+  <div class="modal-dialog modal-dialog-centered2" role="document">
+    <div class="modal-content" id="content-fix-1">
+      <div id="rateEntriesModalHeader" class="modal-header">
+
+      </div>
+      <div class="modal-body">
+        <div id="rateEntries" class="scrollmenu2"></div>
+      </div>
+
+        <div class="form-group">
+          <label class="marg">Rating: </label>
+          <input type="number" min="0" max="5" class="form-control" id="rateEntriesModalRate" placeholder="Enter Rating">
+          <small id="rateEntriesModalWarning">Score got to be between 0-5</small>
+        </div>
+        <div class="form-group">
+          <label class="marg">Comment: </label>
+          <textarea class="form-control" id="rateEntriesModalComment" rows="2"></textarea>
+        </div>
+        <div class="marg">
+          <button id="rateEntriesSubmitButt" class="btn">Submit</button>
+          <button id="rateEntriesBackButt" class="btn">Back</button>
+        </div>
     </div>
   </div>
 </div>
 
 <script src="/javascript/share.js"></script>
 <script src="/javascript/usersList.js"></script>
-<script src="/javascript/index.js"></script>
 <script src="/javascript/follow.js"></script>
 <script src="/javascript/addRest.js"></script>
 <script src="/javascript/firstLayer.js"></script>
 <script src="/javascript/secondLayer.js"></script>
 <script src="/javascript/visiButton.js"></script>
+<script src="/javascript/index.js"></script>

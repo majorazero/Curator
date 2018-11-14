@@ -7,8 +7,12 @@ module.exports = function (app) {
     db.Clan.findAll({
       where:{
         isPublic: true
-      }
+      },
+      order: [
+        ["updatedAt","DESC"]
+      ]
     }).then(function(data){
+      console.log(data)
       let byFour = helper.exploreDataFormatter(data);
       res.render("index",{byFour});
     });
@@ -17,12 +21,17 @@ module.exports = function (app) {
   app.get("/yourFollows/:id", function (req, res) {
     db.Membership.findAll({
       where: {
-        userId: req.params.id
+        userId: req.params.id,
+        isMember: false
       },
       include: [
         { model: db.Clan }
+      ],
+      order: [
+        ["updatedAt","DESC"]
       ]
     }).then(function (data) {
+      console.log(data);
       let byFour = helper.exploreDataFormatter(data, "Clan");
       res.render("index", { byFour: byFour });
       //res.json({byFour});
@@ -37,6 +46,9 @@ module.exports = function (app) {
       },
       include: [
         { model: db.Clan }
+      ],
+      order: [
+        ["updatedAt","DESC"]
       ]
     }).then(function (data) {
       let byFour = helper.exploreDataFormatter(data, "Clan");

@@ -56,7 +56,7 @@ module.exports = (app) => {
             res.status(404).json(err);
         });
     });
-    // 
+    //
     app.get("/api/ratings/checkExist/:clanId/:yelpId", (req,res) => {
       console.log(req.params.clanId,req.params.yelpId);
       db.Rating.findAll({
@@ -89,7 +89,21 @@ module.exports = (app) => {
         });
     });
 
-    // 
+    app.post("/api/ratings/groupRestId",function(req,res){
+      db.Rating.findAll({
+        where:{
+          clanId: req.body.clanId,
+          restaurantId: req.body.restId
+        },
+        include: [
+          {model: db.User}
+        ]
+      }).then(function(data){
+        res.json(data);
+      })
+    });
+
+    //
     app.post("/api/ratings/groupRest", (req, res) => {
       db.Rating.findAll({
         where: {
@@ -98,6 +112,9 @@ module.exports = (app) => {
         include: [
           {model: db.Restaurant},
           {model: db.Clan}
+        ],
+        order: [
+          ["restaurantId","ASC"]
         ]
       }).then(function(data){
         res.json(data);
@@ -109,22 +126,22 @@ module.exports = (app) => {
         db.Rating
         .findAll({
             where: {
-                clanId: req.body.clanId
+              clanId: req.body.clanId
             },
             include: [
-                {
-                    model: db.Restaurant,
-                    attributes: [
-                        "id",
-                        "name",
-                        "imageLink",
-                        "address",
-                        "price",
-                        "yelpId",
-                        [db.sequelize.fn("AVG", db.sequelize.col("rating")), "averageRating"]
-                    ]
-                }
-            ]
+             {
+               model: db.Restaurant,
+               attributes: [
+                   "id",
+                   "name",
+                   "imageLink",
+                   "address",
+                   "price",
+                   "yelpId",
+                   [db.sequelize.fn("AVG", db.sequelize.col("rating")), "averageRating"]
+               ]
+             }
+           ]
         })
         .then((data) => {
             res.status(200).json(data);
@@ -169,5 +186,17 @@ module.exports = (app) => {
         .catch((err) => {
             res.status(404).json(err);
         });
+    });
+    //delete by restaurantid
+    app.delete("/api/ratings/destroy/RestId", function(req,res){
+      console.log(req.body.restId);
+      db.Rating.destroy({
+        where: {
+          restaurantId: req.body.restId,
+          clanId: req.body.clanId
+        }
+      }).then(function(data){
+        res.json(data);
+      });
     });
 };

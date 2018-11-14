@@ -3,4 +3,4 @@ node_modules
 .vscode
 .eslintrc.json
 *.lock
-config.json
+.env

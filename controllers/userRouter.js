@@ -1,5 +1,5 @@
 const db = require("../models");
-const crypto = require("crypto");
+const TokenUtility = require("../helper/token-utility");
 
 module.exports = function(app){
   ////////////////////////////////////
@@ -7,20 +7,18 @@ module.exports = function(app){
   ///////////////////////////////////
 
 
-
   ////////////////////////////////////
   //////Create Routes
   ///////////////////////////////////
   app.post("/api/tokenLogin",function(req,res){
     db.User.findOne({
-      where:{
+      where: {
         token: req.body.token
       }
     }).then(function(data){
       if (data !== null){
         res.json(data.dataValues);
-      }
-      else {
+      } else {
         //we didn't
         res.json("No matching token.");
       }
@@ -34,16 +32,21 @@ module.exports = function(app){
     }).then(function(user){
       if(user === null){
         //sends back user dne as womp2 response
-        res.json("womp2")
-      }
-      else{
+        res.json("womp2");
+      } else{
         if(user.dataValues.password === req.body.password){
           console.log("Yep!");
           //if password matches, we'll make a token, by encryption
           //tokens are uniquely generated based on user name and password
-          let mykey = crypto.createCipher("aes-128-cbc",req.body.username);
-          let token = mykey.update(req.body.password,'utf8','hex');
-          token += mykey.final('hex');
+          const tokenUtil = new TokenUtility(req.body.username);
+          let token = tokenUtil.encode(req.body.password);
+          // res.cookie("token", token, {expires: new Date(Date.now() + 999999999)});
+          // const sessionUser = {
+          //   token: token,
+          //   id: user.dataValues.id,
+          //   username: user.dataValues.username
+          // };
+          // req.session.user = sessionUser;
           //saves token
           db.User.update({
             token: token
@@ -54,9 +57,9 @@ module.exports = function(app){
           }).then(function(data){
             //sends token back to front end.
             res.json({token: token, id: user.dataValues.id, username: user.dataValues.username});
+            //res.json(sessionUser);
           });
-        }
-        else {
+        } else {
           //sends bad password back as a womp response
           res.json("womp");
         }
@@ -75,8 +78,7 @@ module.exports = function(app){
       //if we found someone
       if(data !== null){
         res.json("Username already used.");
-      }
-      else {
+      } else {
         //we'll build our user
         db.User.create({
           username: req.body.username,
@@ -85,7 +87,7 @@ module.exports = function(app){
           res.end();
         }).catch(err => res.status(404).json(err));
       }
-    })
+    });
   });
   ////////////////////////////////////
   //////Update Routes
@@ -106,11 +108,11 @@ module.exports = function(app){
   ///////////////////////////////////
   app.delete("/api/deleteUser",function(req,res){
     db.User.destroy({
-      where:{
+      where: {
         id: req.body.id
       }
     }).then(function(){
-      res.json("User destroyed.")
+      res.json("User destroyed.");
     });
   });
 };

@@ -10,6 +10,10 @@ express = require("express"),
 hbs = require("express-handlebars"),
 path = require("path"),
 db = require("./models");
+// session = require("express-session");
+//
+// // Run environment file
+// require("dotenv").config();
 
 // Components
 // ----------------------------------------
@@ -37,6 +41,14 @@ app.use(jsonParser);
 app.engine('hbs', hbs({defaultLayout: "main", extname: ".hbs"}));
 app.set('view engine', 'hbs');
 
+// Set session configuration
+// app.use(session({
+//     secret: process.env.SESSION_SECRET,
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: {secure: "auto"}
+// }));
+
 // Routes
 // ----------------------------------------
 
@@ -50,6 +62,7 @@ require("./controllers/indexRouter.js")(app);
 // Sync sequelize models + listen
 db.sequelize
 .sync({force: false})
+
 .then(() => {
     app.listen(PORT, () => {
         console.log(`Food Curator server running on port ${PORT}`);

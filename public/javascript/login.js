@@ -68,6 +68,7 @@ $("#logout").on("click", function () {
   localStorage.clear();
   $("#profileModal").modal("toggle");
   $(".login-only").hide();
+  window.location.replace("/");
 });
 
 //register transition
@@ -75,27 +76,37 @@ $("#toRegisterButton").on("click", function () {
   $("#log-sign-modal").modal("toggle");
   $("#registerModal").modal("toggle");
   $("#usernameWarningMessage").hide();
+  $("#usernameWarningLengthMessage").hide();
+  $("#regPassWarningLengthMessage").hide();
 });
 
 $("#registerButton").on("click", function () {
   let username = $("#regUsername").val();
   let password = $("#regPass").val();
-  $.ajax({
-    type: "POST",
-    url: "/api/newUser",
-    data: {
-      username: username,
-      password: password
-    }
-  }).then(function (response) {
-    if (response === "Username already used.") {
-      $("#regUsername").val("");
-      $("#usernameWarningMessage").show();
-    }
-    else {
-      //its been made. so we'll just ask them to log in so we can make them a key.
-      $("#registerModal").modal("toggle");
-      $("#registerSuccess").modal("toggle");
-    }
-  });
+  if(username.length < 2 || username.length > 30){
+    $("#usernameWarningLengthMessage").show();
+  }
+  else if(password.length > 40){
+    $("#regPassWarningLengthMessage").show();
+  }
+  else{
+    $.ajax({
+      type: "POST",
+      url: "/api/newUser",
+      data: {
+        username: username,
+        password: password
+      }
+    }).then(function (response) {
+      if (response === "Username already used.") {
+        $("#regUsername").val("");
+        $("#usernameWarningMessage").show();
+      }
+      else {
+        //its been made. so we'll just ask them to log in so we can make them a key.
+        $("#registerModal").modal("toggle");
+        $("#registerSuccess").modal("toggle");
+      }
+    });
+  }
 });
